@@ -1,0 +1,10 @@
+#Visual Studio Code
+.vscode
+
+#Python Cache
+*.py[cod]
+__pycache__/
+
+#Others
+Thumbs.db
+.DS_Store
