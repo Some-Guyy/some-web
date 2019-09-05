@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Header from './components/layout/Header';
+import Countdown from './components/Countdown';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Some Web</h1>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Countdown />
+      </div>
+    );
+  }
 }
 
 export default App;
