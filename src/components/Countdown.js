@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Countdown extends Component {
     state = {
-        end_date: new Date("Feb 14, 2020 17:30:00").getTime(),
+        end_date: new Date(Date.UTC(2020, 1, 14, 9, 30)).getTime(),
         now: NaN,
         distance: NaN,
         days: NaN,
