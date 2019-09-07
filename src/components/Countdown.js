@@ -51,7 +51,9 @@ class Countdown extends Component {
 const styleCountdown = {
     padding: '10px',
     textAlign: 'center',
-    fontSize: '30px'
+    fontSize: '30px',
+    fontWeight: 'bold',
+    color: '#333'
 }
 
 export default Countdown;

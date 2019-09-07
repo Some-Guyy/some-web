@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Manjari';
+  src:
+    local('Manjari'),
+    local('Manjari-Regular'),
+    url(./fonts/Manjari-Regular.ttf);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,6 +13,6 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Manjari', Arial, Helvetica, sans-serif;
   line-height: 1.4;
 }
