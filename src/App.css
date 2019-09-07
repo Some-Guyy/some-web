@@ -1,3 +1,10 @@
+/* Color Scheme:
+  Dominant: #3dd465 (Emerald Green)
+  Accent: ?
+  Text: #fff (White)
+  Background: #222 (Light Black)
+*/
+
 @font-face {
   font-family: 'Manjari';
   src:
@@ -15,4 +22,5 @@
 body {
   font-family: 'Manjari', Arial, Helvetica, sans-serif;
   line-height: 1.4;
+  background-color: #222;
 }

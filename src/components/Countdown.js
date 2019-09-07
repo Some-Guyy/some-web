@@ -53,7 +53,7 @@ const styleCountdown = {
     textAlign: 'center',
     fontSize: '30px',
     fontWeight: 'bold',
-    color: '#333'
+    color: '#fff'
 }
 
 export default Countdown;
