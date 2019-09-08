@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Countdown extends Component {
+export default class Countdown extends Component {
     state = {
         end_date: new Date(Date.UTC(2020, 1, 14, 9, 30)).getTime(),
         now: NaN,
@@ -55,5 +55,3 @@ const styleCountdown = {
     fontWeight: 'bold',
     color: '#fff'
 }
-
-export default Countdown;
