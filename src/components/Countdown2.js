@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class Countdown extends Component {
+export default class Countdown2 extends Component {
     state = {
         end_date: this.props.date,
         now: NaN,
@@ -60,6 +60,6 @@ const styleCountdown = {
     color: '#fff'
 }
 
-Countdown.propTypes = {
+Countdown2.propTypes = {
     date: PropTypes.number.isRequired
 }
