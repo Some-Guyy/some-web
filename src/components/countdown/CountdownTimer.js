@@ -57,7 +57,6 @@ const styleCountdown = {
     textAlign: 'center',
     fontSize: '30px',
     fontWeight: 'bold',
-    color: '#fff'
 }
 
 CountdownTimer.propTypes = {

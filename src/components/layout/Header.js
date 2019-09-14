@@ -10,7 +10,6 @@ export default function Header() {
 
 const styleHeader = {
     backgroundColor: '#3dd465',
-    color: '#fff',
     textAlign: 'center',
     padding: '10px'
 }
