@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
+import Countdown from './countdown/Countdown';
 
-export default class App extends Component {
+export default class Home extends Component {
   render() {
     return (
-      <div style={styleHome}>
-        Hi this is home.
+      <div>
+        <Countdown />
       </div>
     );
   }
-}
-
-const styleHome = {
-    padding: '10px',
-    textAlign: 'center',
-    fontSize: '30px'
 }

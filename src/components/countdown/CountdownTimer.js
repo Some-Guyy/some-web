@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class CountdownTimer extends Component {
     state = {
-        end_date: this.props.date,
+        endDate: this.props.date.getTime(),
         now: NaN,
         distance: NaN,
         days: NaN,
@@ -17,7 +17,7 @@ export default class CountdownTimer extends Component {
     timer = () => {
         this.setState({ now: new Date().getTime() })
         this.setState({
-            distance: this.state.end_date - this.state.now,
+            distance: this.state.endDate - this.state.now,
             days: this.commafyNumber(Math.floor(this.state.distance / (1000 * 60 * 60 * 24))),
             hours: this.commafyNumber(Math.floor(this.state.distance / (1000 * 60 * 60))),
             minutes: this.commafyNumber(Math.floor(this.state.distance / (1000 * 60))),
@@ -29,8 +29,8 @@ export default class CountdownTimer extends Component {
     }
 
     componentDidMount = () => {
-        this.setState({ now: this.state.end_date - new Date().getTime() })
-        this.setState({ distance: this.state.end_date - this.state.now })
+        this.setState({ now: this.state.endDate - new Date().getTime() })
+        this.setState({ distance: this.state.endDate - this.state.now })
         this.intervalId = setInterval(this.timer, 1000);
     }
     componentWillUnmount = () => clearInterval(this.intervalId)
@@ -38,15 +38,17 @@ export default class CountdownTimer extends Component {
     render() {
         const { days, hours, minutes, seconds } = this.state;
         return (
-            <div>
+            <div style={styleCountdown}>
                 {isNaN(days)
                     ? (
-                        <p style={styleCountdown}>Loading countdown...</p>
+                        <p>Loading countdown...</p>
                     ) : (
-                        <div style={styleCountdown}>
-                            {days} days<br />{hours} hours<br />{minutes} minutes<br />{seconds} seconds
+                        <div>
+                            {days} days<br />{hours} hours<br />{minutes} minutes<br />{seconds} seconds<br />
                         </div>
-                    )}
+                    )
+                }
+                <button style={styleButton} onClick={this.props.stopCountdown.bind(this)}>Change Countdown</button>
             </div>
         );
     }
@@ -59,6 +61,18 @@ const styleCountdown = {
     fontWeight: 'bold',
 }
 
+const styleButton = {
+    backgroundColor: '#3dd465',
+    color: '#fff',
+    border: '1px solid #fff',
+    borderRadius: '5px',
+    padding: '10px',
+    margin: '15px',
+    fontFamily: 'Manjari',
+    fontSize: '16px',
+    cursor: 'pointer'
+}
+
 CountdownTimer.propTypes = {
-    date: PropTypes.number.isRequired
+    date: PropTypes.object.isRequired
 }
