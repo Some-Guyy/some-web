@@ -10,7 +10,7 @@
   src:
     local('Manjari'),
     local('Manjari-Regular'),
-    url(./fonts/Manjari-Regular.ttf);
+    url(./assets/fonts/Manjari-Regular.ttf);
 }
 
 * {
@@ -23,15 +23,4 @@ body {
   font-family: 'Manjari', Arial, Helvetica, sans-serif;
   line-height: 1.4;
   background-color: #222;
-}
-
-button {
-  background-color: #3dd465;
-  border: none;
-  color: white;
-  padding: 15px 30px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
 }
