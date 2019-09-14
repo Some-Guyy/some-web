@@ -3,7 +3,7 @@ import React from 'react';
 export default function Header() {
     return (
         <header style={styleHeader}>
-            <h1>Some Website</h1>
+            <p style={{ fontSize: '35px', fontWeight: 'bold' }}>Some Website</p>
         </header>
     )
 }

@@ -53,10 +53,13 @@ export default class Countdown extends Component {
                 {!this.state.endDate
                     ? (
                         <div style={{ textAlign: 'center', padding: '10px' }}>
+                            <p style={{ fontSize: '30px' }}>Create your own countdown!</p><br />
+                            <p style={{ fontSize: '20px' }}>Date | Time</p>
                             <input type="date" onChange={this.handleDateChange} min={new Date().toISOString().split('T')[0]} />
                             <input type="time" onChange={this.handleTimeChange} /><br />
                             <button style={!this.state.date || !this.state.time ? styleButtonDisabled : styleButton} disabled={!this.state.date || !this.state.time} onClick={this.launchCountdown}>Launch Countdown</button>
-                            <p>Did you accidentally stop the countdown? Just refresh the page to go back to it!</p>
+                            <p style={{ fontSize: '20px' }}>Did you accidentally stop the countdown? Just refresh the page to go back to it!</p>
+                            <p style={{ fontStyle: 'italic' }}>Note: This component uses cookies to remember the date/time you've chosen above.</p>
                         </div>
                     ) : (
                         <CountdownTimer date={this.state.endDate} stopCountdown={this.stopCountdown} />
@@ -88,5 +91,6 @@ const styleButtonDisabled = {
     padding: '10px',
     margin: '15px',
     fontFamily: 'Manjari',
-    fontSize: '16px'
+    fontSize: '16px',
+    cursor: 'not-allowed'
 }
