@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import CountdownTimer from './CountdownTimer';
 
+import '../../App.css';
+
 export default class Countdown extends Component {
     state = {
         date: NaN,
@@ -35,7 +37,7 @@ export default class Countdown extends Component {
     handleTimeChange = (event) => this.setState({ time: event.target.value })
     launchCountdown = () => {
         const endDate = new Date(`${this.state.date} ${this.state.time}`);
-        this.setCookie("date", endDate, 365);
+        this.setCookie("countdown_date", endDate, 365);
         this.setState({ endDate });
     }
 
@@ -47,7 +49,7 @@ export default class Countdown extends Component {
 
     componentDidMount = () => {
         if (this.getCookie("date") !== "") {
-            this.setState({ endDate: new Date(this.getCookie("date")) })
+            this.setState({ endDate: new Date(this.getCookie("countdown_date")) })
         }
     }
 
@@ -61,7 +63,7 @@ export default class Countdown extends Component {
                             <p style={{ fontSize: '20px' }}>Date | Time</p>
                             <input type="date" onChange={this.handleDateChange} min={new Date().toISOString().split('T')[0]} max={"275759-12-31"} />
                             <input type="time" onChange={this.handleTimeChange} /><br />
-                            <button style={!this.state.date || !this.state.time ? styleButtonDisabled : styleButton} disabled={!this.state.date || !this.state.time} onClick={this.launchCountdown}>Launch Countdown</button>
+                            <button className="colorText colorBackDominant" style={!this.state.date || !this.state.time ? styleButtonDisabled : styleButton} disabled={!this.state.date || !this.state.time} onClick={this.launchCountdown}>Launch Countdown</button>
                             <p style={{ fontSize: '20px' }}>Did you accidentally stop the countdown? Just refresh the page to go back to it!</p>
                             <p style={{ fontStyle: 'italic' }}>Note: This component uses cookies to remember the date/time you've chosen above.</p>
                         </div>
@@ -75,9 +77,7 @@ export default class Countdown extends Component {
 }
 
 const styleButton = {
-    backgroundColor: '#3dd465',
-    color: '#fff',
-    border: '1px solid #fff',
+    border: '1px solid',
     borderRadius: '5px',
     padding: '10px',
     margin: '15px',
@@ -88,9 +88,7 @@ const styleButton = {
 
 const styleButtonDisabled = {
     opacity: '0.5',
-    backgroundColor: '#3dd465',
-    color: '#fff',
-    border: '1px solid #fff',
+    border: '1px solid',
     borderRadius: '5px',
     padding: '10px',
     margin: '15px',

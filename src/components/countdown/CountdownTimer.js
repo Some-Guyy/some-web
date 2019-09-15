@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import '../../App.css';
+
 export default class CountdownTimer extends Component {
     state = {
         endDate: this.props.date.getTime(),
@@ -51,7 +53,7 @@ export default class CountdownTimer extends Component {
                         </div>
                     )
                 }
-                <button style={styleButton} onClick={this.props.stopCountdown.bind(this)}>Change Countdown</button>
+                <button className="colorText colorBackDominant" style={styleButton} onClick={this.props.stopCountdown.bind(this)}>Change Countdown</button>
             </div>
         );
     }
@@ -65,9 +67,7 @@ const styleCountdown = {
 }
 
 const styleButton = {
-    backgroundColor: '#3dd465',
-    color: '#fff',
-    border: '1px solid #fff',
+    border: '1px solid',
     borderRadius: '5px',
     padding: '10px',
     margin: '15px',

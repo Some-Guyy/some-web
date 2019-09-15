@@ -5,6 +5,26 @@
   Background: #222 (Light Black)
 */
 
+.colorDominant {
+  color: #3dd465
+}
+.colorText {
+  color: #fff
+}
+.colorBackground {
+  color: #222
+}
+
+.colorBackDominant {
+  background-color: #3dd465
+}
+.colorBackText {
+  background-color: #fff
+}
+.colorBackBackground {
+  background-color: #222
+}
+
 @font-face {
   font-family: 'Manjari';
   src:
@@ -25,3 +45,33 @@ body {
   background-color: #222;
   color: #fff;
 }
+
+/* Disclaimer */
+.disclaimer{
+  background:rgba(0,0,0,.4);
+  height:100%;
+  position:fixed;
+  text-align:center;
+  top:0;
+  width:100%;
+  z-index:10000;
+}
+.disclaimer .helper{
+  display:inline-block;
+  height:100%;
+  vertical-align:middle;
+}
+.disclaimer > div {
+  background-color: #222;
+  box-shadow: 10px 10px 60px #3dd465;
+  display: inline-block;
+  height: auto;
+  max-width: 551px;
+  min-height: 100px;
+  vertical-align: middle;
+  width: 60%;
+  position: relative;
+  border-radius: 8px;
+  padding: 15px 5%;
+}
+/* End of Disclaimer */
