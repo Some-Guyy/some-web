@@ -9,19 +9,23 @@ export default class CountdownTimer extends Component {
         days: NaN,
         hours: NaN,
         minutes: NaN,
-        seconds: NaN
+        seconds: NaN,
+        secondsStayed: 0
     }
 
     commafyNumber = (number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
     timer = () => {
         this.setState({ now: new Date().getTime() })
-        this.setState({
-            distance: this.state.endDate - this.state.now,
-            days: this.commafyNumber(Math.floor(this.state.distance / (1000 * 60 * 60 * 24))),
-            hours: this.commafyNumber(Math.floor(this.state.distance / (1000 * 60 * 60))),
-            minutes: this.commafyNumber(Math.floor(this.state.distance / (1000 * 60))),
-            seconds: this.commafyNumber(Math.floor(this.state.distance / 1000))
+        this.setState( prevState => {
+            return {
+                distance: prevState.endDate - prevState.now,
+                days: this.commafyNumber(Math.floor(prevState.distance / (1000 * 60 * 60 * 24))),
+                hours: this.commafyNumber(Math.floor(prevState.distance / (1000 * 60 * 60))),
+                minutes: this.commafyNumber(Math.floor(prevState.distance / (1000 * 60))),
+                seconds: this.commafyNumber(Math.floor(prevState.distance / 1000)),
+                secondsStayed: prevState.secondsStayed + 1
+            }
         })
         if (this.state.distance < 0) {
             clearInterval(this.intervalId);
@@ -30,16 +34,15 @@ export default class CountdownTimer extends Component {
 
     componentDidMount = () => {
         this.setState({ now: this.state.endDate - new Date().getTime() })
-        this.setState({ distance: this.state.endDate - this.state.now })
         this.intervalId = setInterval(this.timer, 1000);
     }
     componentWillUnmount = () => clearInterval(this.intervalId)
 
     render() {
-        const { days, hours, minutes, seconds } = this.state;
+        const { days, hours, minutes, seconds, secondsStayed } = this.state;
         return (
             <div style={styleCountdown}>
-                {isNaN(days)
+                {secondsStayed < 2
                     ? (
                         <p>Loading countdown...</p>
                     ) : (
