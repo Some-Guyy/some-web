@@ -48,7 +48,7 @@ export default class Countdown extends Component {
     })
 
     componentDidMount = () => {
-        if (this.getCookie("date") !== "") {
+        if (this.getCookie("countdown_date") !== "") {
             this.setState({ endDate: new Date(this.getCookie("countdown_date")) })
         }
     }
