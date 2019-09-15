@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 import '../../App.css';
 
 export default class CookieNotice extends Component {
+    state = {
+        checked: false,
+        consent: false
+    }
+
     // Cookies
     setCookie = (cname, cvalue, cexpiryDays) => {
         var d = new Date();
@@ -26,26 +31,36 @@ export default class CookieNotice extends Component {
         return "";
     }
 
+    handleCheckboxChange = () => this.setState(prevState => { return { checked: !prevState.checked } })
+    consent = () => {
+        this.setCookie("cookienotice_consent", 'true', 365);
+        this.setState({ consent: true });
+    }
+
+    componentDidMount = () => {
+        if (this.getCookie("cookienotice_consent") === 'true') {
+            this.setState({ consent: true });
+        }
+    }
+
     render() {
         return (
             <React.Fragment>
-                {this.getCookie("cookienotice_consent") !== ""
+                {!this.state.consent
                     ? (
                         <div className="disclaimer">
                             <span className="helper"></span>
                             <div>
-                                <h2 style={{fontWeight: 'bold', color: ''}}></h2>
+                                <h1 className="colorDominant">Notice</h1>
                                 <p>
-                                    This website was designed to provide helpful information by matching user queries with author publications.
-                                    This website is not meant to be used, nor should it be used, as the one and only way to show conclusive evidence of author ranks.
-                                    The search results from a query may not be 100% accurate, and we disclaim any liability in connection with the use of this information.
-                    </p><br />
-                                <p><input id="disclaimerCheckbox" type="checkbox" />By checking the box, I have read and understood the disclaimer above.</p>
-                                <button id="disclaimerButton" className="colorText colorBackDominant" type="button" style={styleButton} disabled>Understood</button>
+                                    This site uses cookies to provide you with a greater user experience by saving your preferences for certain apps. These apps can be identified with their italicized 'Note' text placed at the bottom of the app.
+                                </p><br />
+                                <p style={{ fontSize: '14px', fontStyle: 'italic' }}><input type="checkbox" onChange={this.handleCheckboxChange} />By checking the box, I consent to the use of cookies.</p>
+                                <button className="colorText colorBackDominant" type="button" style={!this.state.checked ? styleButtonDisabled : styleButton} disabled={!this.state.checked} onClick={this.consent}>Consent</button>
                             </div>
                         </div>
                     ) : (
-                        <span></span>
+                        <React.Fragment></React.Fragment>
                     )
                 }
             </React.Fragment>
@@ -54,7 +69,7 @@ export default class CookieNotice extends Component {
 }
 
 const styleButton = {
-    border: '1px solid #fff',
+    border: '1px solid',
     borderRadius: '5px',
     padding: '10px',
     margin: '15px',
@@ -65,7 +80,7 @@ const styleButton = {
 
 const styleButtonDisabled = {
     opacity: '0.5',
-    border: '1px solid #fff',
+    border: '1px solid',
     borderRadius: '5px',
     padding: '10px',
     margin: '15px',
