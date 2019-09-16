@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import CookieNotice from './components/utilities/CookieNotice';
 import Home from './components/Home';
 
@@ -13,6 +14,7 @@ export default class App extends Component {
         <CookieNotice />
         <Header />
         <Home />
+        <Footer />
       </div>
     );
   }
