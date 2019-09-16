@@ -37,7 +37,7 @@ export default class Countdown extends Component {
     handleTimeChange = (event) => this.setState({ time: event.target.value })
     launchCountdown = () => {
         const endDate = new Date(`${this.state.date} ${this.state.time}`);
-        this.setCookie("countdown_date", endDate, 365);
+        this.setCookie("countdown_date", endDate, 3650);
         this.setState({ endDate });
     }
 
