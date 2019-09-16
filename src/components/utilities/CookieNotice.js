@@ -55,7 +55,7 @@ export default class CookieNotice extends Component {
                                 <p>
                                     This site uses cookies to provide you with a greater user experience by saving your preferences for certain apps. These apps can be identified with their italicized 'Note' text placed at the bottom of the app.
                                 </p><br />
-                                <p style={{ fontSize: '14px', fontStyle: 'italic' }}><input type="checkbox" onChange={this.handleCheckboxChange} />By checking the box, I consent to the use of cookies.</p>
+                                <p style={{ fontSize: '14px', fontStyle: 'italic' }}><input id="checkboxConsent" className="css-checkbox" type="checkbox" onChange={this.handleCheckboxChange} /><label for="checkboxConsent" class="css-label dark-check-green"></label>By checking the box, I consent to the use of cookies.</p>
                                 <button className="colorText colorBackDominant" type="button" style={!this.state.checked ? styleButtonDisabled : styleButton} disabled={!this.state.checked} onClick={this.consent}>Consent</button>
                             </div>
                         </div>
