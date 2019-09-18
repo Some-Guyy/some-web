@@ -48,7 +48,7 @@ export default class CountdownTimer extends Component {
                 <div style={styleCountdownTimer}>
                     {distance < 0
                         ? (
-                            <p>Countdown Complete!</p>
+                            <p className="colorDominant">Countdown Complete!</p>
                         ) : (secondsStayed < 2
                             ? (
                                 <p>Loading countdown...</p>
