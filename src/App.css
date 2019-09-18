@@ -42,6 +42,7 @@
 body {
   font-family: 'Manjari', Arial, Helvetica, sans-serif;
   line-height: 1.4;
+  padding-bottom: 20px;
 }
 
 button:hover {
