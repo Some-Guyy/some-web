@@ -5,7 +5,8 @@ import '../../App.css';
 
 export default class CountdownTimer extends Component {
     state = {
-        endDate: this.props.date.getTime(),
+        endDate: this.props.date,
+        endDateTime: this.props.date.getTime(),
         now: NaN,
         distance: NaN,
         days: NaN,
@@ -19,9 +20,9 @@ export default class CountdownTimer extends Component {
 
     timer = () => {
         this.setState({ now: new Date().getTime() })
-        this.setState( prevState => {
+        this.setState(prevState => {
             return {
-                distance: prevState.endDate - prevState.now,
+                distance: prevState.endDateTime - prevState.now,
                 days: this.commafyNumber(Math.floor(prevState.distance / (1000 * 60 * 60 * 24))),
                 hours: this.commafyNumber(Math.floor(prevState.distance / (1000 * 60 * 60))),
                 minutes: this.commafyNumber(Math.floor(prevState.distance / (1000 * 60))),
@@ -35,35 +36,48 @@ export default class CountdownTimer extends Component {
     }
 
     componentDidMount = () => {
-        this.setState({ now: this.state.endDate - new Date().getTime() })
+        this.setState({ now: this.state.endDateTime - new Date().getTime() })
         this.intervalId = setInterval(this.timer, 1000);
     }
     componentWillUnmount = () => clearInterval(this.intervalId)
 
     render() {
-        const { days, hours, minutes, seconds, secondsStayed } = this.state;
+        const { endDate, distance, days, hours, minutes, seconds, secondsStayed } = this.state;
         return (
-            <div style={styleCountdown}>
-                {secondsStayed < 2
-                    ? (
-                        <p>Loading countdown...</p>
-                    ) : (
-                        <div>
-                            {days} days<br />{hours} hours<br />{minutes} minutes<br />{seconds} seconds<br />
-                        </div>
-                    )
-                }
-                <button className="colorText colorBackDominant" style={styleButton} onClick={this.props.stopCountdown.bind(this)}>Change Countdown</button>
-            </div>
+            <React.Fragment>
+                <div style={styleCountdownTimer}>
+                    {distance < 0
+                        ? (
+                            <p>Countdown Complete!</p>
+                        ) : (secondsStayed < 2
+                            ? (
+                                <p>Loading countdown...</p>
+                            ) : (
+                                <div>
+                                    {days} days<br />{hours} hours<br />{minutes} minutes<br />{seconds} seconds<br />
+                                </div>
+                            )
+                        )}
+                </div>
+                <div style={styleCountdownInfo}>
+                    <p>Countdown ends on {endDate.toString()}.</p>
+                    <button className="colorText colorBackDominant" style={styleButton} onClick={this.props.stopCountdown.bind(this)}>Change Countdown</button>
+                </div>
+            </React.Fragment>
         );
     }
 }
 
-const styleCountdown = {
+const styleCountdownTimer = {
     padding: '10px',
     textAlign: 'center',
     fontSize: '30px',
     fontWeight: 'bold',
+}
+
+const styleCountdownInfo = {
+    padding: '10px',
+    textAlign: 'center'
 }
 
 const styleButton = {
