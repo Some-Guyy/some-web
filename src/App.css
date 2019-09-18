@@ -29,8 +29,10 @@
   font-family: 'Manjari';
   src:
     local('Manjari'),
-    local('Manjari-Regular'),
-    url(./assets/fonts/Manjari-Regular.ttf);
+    local('Manjari-Regular' ),
+    url(./assets/fonts/Manjari-Regular.ttf) format('truetype'),
+    url(./assets/fonts/Manjari-Regular.woff) format('woff'),
+    url(./assets/fonts/Manjari-Regular.woff2) format('woff2');
 }
 
 * {
