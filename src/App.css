@@ -32,6 +32,20 @@
     local('Manjari-Regular'),
     url(./assets/fonts/Manjari-Regular.ttf);
 }
+@font-face {
+  font-family: 'Manjari';
+  src:
+    local('Manjari'),
+    local('Manjari-Bold'),
+    url(./assets/fonts/Manjari-Bold.ttf);
+}
+@font-face {
+  font-family: 'Manjari';
+  src:
+    local('Manjari'),
+    local('Manjari-Thin'),
+    url(./assets/fonts/Manjari-Thin.ttf);
+}
 
 * {
   box-sizing: border-box;
