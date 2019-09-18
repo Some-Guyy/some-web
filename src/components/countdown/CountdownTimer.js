@@ -72,7 +72,7 @@ const styleCountdownTimer = {
     padding: '10px',
     textAlign: 'center',
     fontSize: '30px',
-    fontWeight: '700',
+    fontWeight: 'bold',
 }
 
 const styleCountdownInfo = {
