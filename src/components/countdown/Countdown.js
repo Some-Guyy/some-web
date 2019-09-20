@@ -66,7 +66,6 @@ export default class Countdown extends Component {
                             <button className="colorText colorBackDominant" style={!this.state.date || !this.state.time ? styleButtonDisabled : styleButton} disabled={!this.state.date || !this.state.time} onClick={this.launchCountdown}>Launch Countdown</button>
                             <p style={{ fontSize: '20px' }}>Did you accidentally stop the countdown? Just refresh the page to go back to it!</p>
                             <p style={{ fontStyle: 'italic' }}>Note: This app stores a cookie when launched to remember the date/time you've chosen above.</p>
-                            <p style={{marginTop: '250px'}}>Here's a nice cube for you to look at.</p>
                         </div>
                     ) : (
                         <CountdownTimer date={this.state.endDate} stopCountdown={this.stopCountdown} />
