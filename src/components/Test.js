@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
 import * as THREE from 'three';
-// import { TimelineMax } from 'gsap';
+import { TimelineMax, Expo } from 'gsap';
 
 import '../App.css';
 
 export default class Test extends Component {
     render() {
+        
         return (
             <React.Fragment></React.Fragment>
         );
@@ -48,3 +49,7 @@ let render = () => {
 }
 
 render();
+
+let tl = new TimelineMax().delay(.3);
+tl.to(mesh.scale, 1, {x: 3, ease:Expo.easeOut});
+tl.to(mesh.scale, 1, {x: 1, ease:Expo.easeOut});
