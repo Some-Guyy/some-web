@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import * as THREE from 'three';
-// import { TweenMax } from 'gsap';
+// import { TimelineMax } from 'gsap';
 
 import '../App.css';
 
