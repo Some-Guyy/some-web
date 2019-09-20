@@ -5,7 +5,7 @@ import Test from './Test';
 export default class Home extends Component {
   render() {
     return (
-      <div className="canvas">
+      <div className="onCanvas">
         <Countdown />
         <Test />
       </div>
