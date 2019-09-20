@@ -4,13 +4,8 @@ import '../../App.css';
 
 export default function Header() {
     return (
-        <header className="colorBackDominant" style={styleHeader}>
-            <p style={{ fontSize: '35px', fontWeight: 'bold' }}>Some Website</p>
+        <header className="colorBackDominant">
+            Some Website
         </header>
     )
-}
-
-const styleHeader = {
-    textAlign: 'center',
-    padding: '10px'
 }

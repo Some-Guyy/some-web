@@ -37,20 +37,52 @@
 
 * {
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+header {
+  top: 0;
+  width: 100%;
+  height: 60px;
+  position: absolute;
+
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 35px;
+}
 body {
   font-family: 'Manjari', Arial, Helvetica, sans-serif;
   line-height: 1.4;
-  padding-bottom: 20px;
+  padding-top: 60px;
+}
+footer {
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  
+  font-size: 14px;
+  padding: 2px;
 }
 
 button:hover {
   filter: brightness(120%);
 }
 
+canvas {
+  display: block;
+}
+
+.canvas {
+  position: absolute;
+  width: 100%;
+}
+
+/* Part-specific CSS below. */
 /* Disclaimer */
 .disclaimer {
   background:rgba(0,0,0,.4);
