@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 import { TimelineMax, Expo } from 'gsap';
 
-import '../App.css';
+import '../../App.css';
 
-export default class Test extends Component {
+export default class Cubes extends Component {
     render() {
         return (
             <React.Fragment></React.Fragment>
