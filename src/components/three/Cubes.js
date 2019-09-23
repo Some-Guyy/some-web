@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import * as THREE from 'three';
 import { TimelineMax, Expo } from 'gsap';
 
 import '../../App.css';
 
-export default class Cubes extends Component {
-    render() {
-        return (
-            <React.Fragment></React.Fragment>
-        );
-    }
+export default function Cubes() {
+    return (
+        <React.Fragment></React.Fragment>
+    );
 }
 
 let scene = new THREE.Scene();
@@ -35,7 +33,7 @@ let meshArray = [];
 
 for (let i = 0; i < 20; i++) {
     let geometry = new THREE.BoxGeometry(Math.random() * 3, Math.random() * 3, Math.random() * 3);
-    let material = new THREE.MeshLambertMaterial({color: Math.random() * 0xFFFFFF});
+    let material = new THREE.MeshLambertMaterial({ color: Math.random() * 0xFFFFFF });
     let mesh = new THREE.Mesh(geometry, material);
     mesh.position.x = (Math.random() - 0.5) * 20;
     mesh.position.y = (Math.random() - 0.5) * 20;
@@ -63,14 +61,14 @@ let render = () => {
 const onHover = event => {
     event.preventDefault();
 
-    mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
     let intersects = raycaster.intersectObjects(scene.children, true);
     for (let i = 0; i < intersects.length; i++) {
         let animationSpin = new TimelineMax();
-        animationSpin.to(intersects[i].object.rotation, 3, {y: 15, ease:Expo.easeOut});
+        animationSpin.to(intersects[i].object.rotation, 3, { y: 15, ease: Expo.easeOut });
     }
 }
 
