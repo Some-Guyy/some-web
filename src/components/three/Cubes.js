@@ -46,10 +46,16 @@ scene.add(light);
 const render = () => {
     requestAnimationFrame(render);
 
-    for (var meshObject in meshArray) {
-        meshArray[meshObject].rotation.x += Math.random() / 50;
-        meshArray[meshObject].rotation.y += Math.random() / 50;
-        meshArray[meshObject].rotation.z += Math.random() / 50;
+    for (let i = 0; i < meshArray.length; i++) {
+        if (i % 2 === 0) {
+            meshArray[i].rotation.x += Math.random() / 50;
+            meshArray[i].rotation.y += Math.random() / 50;
+            meshArray[i].rotation.z += Math.random() / 50;
+        } else {
+            meshArray[i].rotation.x -= Math.random() / 50;
+            meshArray[i].rotation.y -= Math.random() / 50;
+            meshArray[i].rotation.z -= Math.random() / 50;
+        }
     }
 
     renderer.render(scene, camera);
