@@ -35,7 +35,7 @@ let meshArray = [];
 
 for (let i = 0; i < 20; i++) {
     let geometry = new THREE.BoxGeometry(Math.random() * 3, Math.random() * 3, Math.random() * 3);
-    let material = new THREE.MeshLambertMaterial({color: Math.random() * 0xFF0000});
+    let material = new THREE.MeshLambertMaterial({color: Math.random() * 0xFFFFFF});
     let mesh = new THREE.Mesh(geometry, material);
     mesh.position.x = (Math.random() - 0.5) * 20;
     mesh.position.y = (Math.random() - 0.5) * 20;
