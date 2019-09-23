@@ -7,7 +7,6 @@ import '../App.css';
 
 export default class Test extends Component {
     render() {
-        
         return (
             <React.Fragment></React.Fragment>
         );
@@ -29,12 +28,22 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
 });
 
-let geometry = new THREE.BoxGeometry(1, 1, 1);
-let material = new THREE.MeshLambertMaterial({color: 0xFF0000});
-let mesh = new THREE.Mesh(geometry, material);
-mesh.position.y = -1;
+let raycaster = new THREE.Raycaster();
+let mouse = new THREE.Vector2();
 
-scene.add(mesh);
+let meshArray = [];
+
+for (let i = 0; i < 20; i++) {
+    let geometry = new THREE.BoxGeometry(Math.random() * 3, Math.random() * 3, Math.random() * 3);
+    let material = new THREE.MeshLambertMaterial({color: Math.random() * 0xFF0000});
+    let mesh = new THREE.Mesh(geometry, material);
+    mesh.position.x = (Math.random() - 0.5) * 20;
+    mesh.position.y = (Math.random() - 0.5) * 20;
+    mesh.position.z = - Math.random() * 10;
+    scene.add(mesh);
+    meshArray.push(mesh);
+}
+
 let light = new THREE.PointLight(0xFFFFFF, 1, 500);
 light.position.set(10, 0, 25);
 scene.add(light);
@@ -42,14 +51,28 @@ scene.add(light);
 let render = () => {
     requestAnimationFrame(render);
 
-    mesh.rotation.x += 0.01;
-    mesh.rotation.z += 0.005;
+    for (var meshObject in meshArray) {
+        meshArray[meshObject].rotation.x += Math.random() / 50;
+        meshArray[meshObject].rotation.y += Math.random() / 50;
+        meshArray[meshObject].rotation.z += Math.random() / 50;
+    }
 
     renderer.render(scene, camera);
 }
 
-render();
+const onHover = event => {
+    event.preventDefault();
 
-let tl = new TimelineMax().delay(.3);
-tl.to(mesh.scale, 1, {x: 3, ease:Expo.easeOut});
-tl.to(mesh.scale, 1, {x: 1, ease:Expo.easeOut});
+    mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+    let intersects = raycaster.intersectObjects(scene.children, true);
+    for (let i = 0; i < intersects.length; i++) {
+        let animationSpin = new TimelineMax();
+        animationSpin.to(intersects[i].object.rotation, 3, {y: 15, ease:Expo.easeOut});
+    }
+}
+
+render();
+window.addEventListener('mousemove', onHover);
