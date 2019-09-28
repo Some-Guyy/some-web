@@ -33,7 +33,7 @@ export default class Countdown extends Component {
         return "";
     }
 
-    handleDateChange = (event) => this.setState({ date: event.target.value })
+    handleDateChange = (event) => this.setState({ date: event.target.value.replace(/-/g, '/') })
     handleTimeChange = (event) => this.setState({ time: event.target.value })
     launchCountdown = () => {
         const endDate = new Date(`${this.state.date} ${this.state.time}`);
