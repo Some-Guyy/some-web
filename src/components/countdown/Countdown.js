@@ -61,6 +61,7 @@ export default class Countdown extends Component {
                         <div style={{ textAlign: 'center', padding: '10px' }}>
                             <p style={{ fontSize: '30px' }}>Create your own countdown!</p><br />
                             <p style={{ fontSize: '20px' }}>Date | Time</p>
+                            <p style={{ fontSize: '20px' }}>yyyy/mm/dd | hh:mm</p>
                             <input type="date" onChange={this.handleDateChange} min={new Date().toISOString().split('T')[0]} max={"275759-12-31"} />
                             <input type="time" onChange={this.handleTimeChange} /><br />
                             <button className="colorText colorBackDominant" style={!this.state.date || !this.state.time ? styleButtonDisabled : styleButton} disabled={!this.state.date || !this.state.time} onClick={this.launchCountdown}>Launch Countdown</button>
