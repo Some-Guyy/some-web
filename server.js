@@ -10,7 +10,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/sota', function(req, res) {
-  res.send(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(__dirname + '../sota-web/build/index.html');
 });
 
 app.listen(port, () => console.log(`Some website listening on port ${port}!`));
