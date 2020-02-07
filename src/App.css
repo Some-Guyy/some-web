@@ -1,27 +1,20 @@
-/* Color Scheme:
-  Dominant: #3dd465 (Emerald Green)
-  Accent: ?
-  Text: #fff (White)
-  Background: #222 (Light Black)
-*/
-
-.colorDominant {
+.colorAccent {
   color: #3dd465
 }
-.colorText {
+.colorSub {
   color: #fff
 }
-.colorBackground {
+.colorDominant {
   color: #222
 }
 
-.colorBackDominant {
+.colorBackAccent {
   background-color: #3dd465
 }
-.colorBackText {
+.colorBackSub {
   background-color: #fff
 }
-.colorBackBackground {
+.colorBackDominant {
   background-color: #222
 }
 

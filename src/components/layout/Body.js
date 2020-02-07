@@ -7,11 +7,12 @@ import '../../App.css';
 
 export default function Body() {
   const [appView, setAppView] = useState('home');
+  const appSelect = appName => setAppView(appName);
   return (
     <React.Fragment>
       {
         appView === 'home'
-          ? <AppList />
+          ? <AppList appSelect={appSelect} />
           : <Countdown />
       }
     </React.Fragment>

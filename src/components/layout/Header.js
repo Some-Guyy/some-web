@@ -4,7 +4,7 @@ import '../../App.css';
 
 export default function Header() {
     return (
-        <header className="colorBackDominant">
+        <header className="colorBackAccent">
             Some Website
         </header>
     )

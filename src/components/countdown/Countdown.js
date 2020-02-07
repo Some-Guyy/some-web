@@ -64,7 +64,7 @@ export default class Countdown extends Component {
                             <p style={{ fontSize: '20px' }}>yyyy/mm/dd | hh:mm</p>
                             <input type="date" onChange={this.handleDateChange} min={new Date().toISOString().split('T')[0]} max={"275759-12-31"} />
                             <input type="time" onChange={this.handleTimeChange} /><br />
-                            <button className="colorText colorBackDominant" style={!this.state.date || !this.state.time ? styleButtonDisabled : styleButton} disabled={!this.state.date || !this.state.time} onClick={this.launchCountdown}>Launch Countdown</button>
+                            <button className="colorSub colorBackAccent" style={!this.state.date || !this.state.time ? styleButtonDisabled : styleButton} disabled={!this.state.date || !this.state.time} onClick={this.launchCountdown}>Launch Countdown</button>
                             <p style={{ fontSize: '20px' }}>Did you accidentally stop the countdown? Just refresh the page to go back to it!</p>
                             <p style={{ fontStyle: 'italic' }}>Note: This app stores a cookie when launched to remember the date/time you've chosen above.</p>
                         </div>

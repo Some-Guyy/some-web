@@ -48,7 +48,7 @@ export default class CountdownTimer extends Component {
                 <div style={styleCountdownTimer}>
                     {distance < 0
                         ? (
-                            <p className="colorDominant">Countdown Complete!</p>
+                            <p className="colorAccent">Countdown Complete!</p>
                         ) : (secondsStayed < 2
                             ? (
                                 <p>Loading countdown...</p>
@@ -61,7 +61,7 @@ export default class CountdownTimer extends Component {
                 </div>
                 <div style={styleCountdownInfo}>
                     <p>Countdown ends on {endDate.toString()}.</p>
-                    <button className="colorText colorBackDominant" style={styleButton} onClick={this.props.stopCountdown.bind(this)}>Change Countdown</button>
+                    <button className="colorSub colorBackAccent" style={styleButton} onClick={this.props.stopCountdown.bind(this)}>Change Countdown</button>
                 </div>
             </React.Fragment>
         );
