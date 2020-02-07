@@ -67,6 +67,18 @@ button:hover {
   filter: brightness(120%);
 }
 
+.textLink {
+  text-decoration: underline;
+  color: aqua;
+}
+.textLink:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.textLink:active {
+  color: #3dd465;
+}
+
 /* Part-specific CSS below. */
 /* Disclaimer */
 .disclaimer {
