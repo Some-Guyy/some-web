@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import CookieNotice from './components/utilities/CookieNotice';
-import Body from './components/Body';
+import Body from './components/layout/Body';
 
 import './App.css';
 
