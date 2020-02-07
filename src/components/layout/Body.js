@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import AppList from './AppList';
+import Home from './Home';
 import Countdown from '../countdown/Countdown';
 
 import '../../App.css';
@@ -12,7 +12,7 @@ export default function Body() {
     <React.Fragment>
       {
         appView === 'home'
-          ? <AppList appSelect={appSelect} />
+          ? <Home appSelect={appSelect} />
           : <Countdown />
       }
     </React.Fragment>
