@@ -67,6 +67,14 @@ button:hover {
   filter: brightness(120%);
 }
 
+#headerText:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+#headerText:active {
+  color: aqua;
+}
+
 .textLink {
   text-decoration: underline;
   color: aqua;

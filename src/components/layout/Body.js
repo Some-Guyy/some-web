@@ -12,7 +12,7 @@ export default function Body() {
   const appSelect = appName => setAppView(appName);
   return (
     <React.Fragment>
-      <Header />
+      <Header appSelect={appSelect} />
       {
         appView === 'home'
           ? <Home appSelect={appSelect} />
