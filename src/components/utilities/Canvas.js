@@ -13,16 +13,21 @@ export default function Canvas() {
 
 const sketch = p => {
     p.setup = _ => {
-        p.createCanvas(200, 200);
+        p.createCanvas(1000, 800);
+        p.background(255);
     }
 
-    p.draw = _ => {
-        p.background(51);
-        p.ellipse(p.mouseX, p.mouseY, 60, 60);
-    }
+    p.mouseDragged = _ => {
+        // Send drawing data to the server.
+        const data = {
+            x: p.mouseX,
+            y: p.mouseY
+        };
+        socket.emit('draw', data);
 
-    // p.myCustomRedrawAccordingToNewPropsHandler = (newProps) => {
-    //     if (canvas) //Make sure the canvas has been created
-    //         p.fill(newProps.color);
-    // }
+        p.noStroke();
+        p.fill(0);
+        p.ellipse(p.mouseX, p.mouseY, 36, 36);
+        console.log(`${data['x']}, ${data['y']}`);
+    }
 }
