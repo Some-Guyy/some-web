@@ -14,6 +14,9 @@ const server = app.listen(port, _ => console.log(`Some website listening on port
 const io = require('socket.io')(server);
 
 io.on('connection', socket => {
-  socket.emit('connected', 'connected!');
   console.log(`New Connection!\nID: ${socket.id}\nIP: ${socket.handshake.address}\n`);
+
+  socket.on('clientDraw', data => {
+    socket.broadcast.emit('serverDraw', data);
+  });
 });

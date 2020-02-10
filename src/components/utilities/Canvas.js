@@ -7,7 +7,7 @@ import '../../App.css';
 const socket = io.connect();
 
 export default function Canvas() {
-    useEffect(_ => socket.on('connected', _ => console.log('Client: Socket connected!')));
+    // useEffect(_ => ); Retrieve previous drawings here.
     return (<P5Wrapper sketch={sketch}></P5Wrapper>)
 }
 
@@ -23,11 +23,17 @@ const sketch = p => {
             x: p.mouseX,
             y: p.mouseY
         };
-        socket.emit('draw', data);
+        socket.emit('clientDraw', data);
 
         p.noStroke();
         p.fill(0);
         p.ellipse(p.mouseX, p.mouseY, 36, 36);
         console.log(`${data['x']}, ${data['y']}`);
     }
+
+    socket.on('serverDraw', data => {
+        p.noStroke();
+        p.fill(0);
+        p.ellipse(data.x, data.y, 36, 36);
+    });
 }
