@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Canvas from '../Canvas';
+import Canvas from '../utilities/Canvas';
 
 import '../../App.css';
 
