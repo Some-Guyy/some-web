@@ -20,20 +20,20 @@ const sketch = p => {
     p.mouseDragged = _ => {
         // Send drawing data to the server.
         const data = {
-            x: p.mouseX,
-            y: p.mouseY
+            drawX: p.mouseX,
+            drawY: p.mouseY
         };
         socket.emit('clientDraw', data);
 
         p.noStroke();
         p.fill(0);
         p.ellipse(p.mouseX, p.mouseY, 36, 36);
-        console.log(`${data['x']}, ${data['y']}`);
+        console.log(`${data['drawX']}, ${data['drawY']}`);
     }
 
     socket.on('serverDraw', data => {
         p.noStroke();
         p.fill(0);
-        p.ellipse(data.x, data.y, 36, 36);
+        p.ellipse(data.drawX, data.drawY, 36, 36);
     });
 }
