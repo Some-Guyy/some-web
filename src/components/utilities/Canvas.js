@@ -12,11 +12,13 @@ export default function Canvas() {
 }
 
 const sketch = p => {
+    // When canvas launches.
     p.setup = _ => {
         p.createCanvas(1000, 800);
         p.background(255);
     }
 
+    // When drawing.
     p.mouseDragged = _ => {
         // Send drawing data to the server.
         const data = {
