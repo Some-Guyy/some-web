@@ -19,11 +19,7 @@ io.on('connection', socket => {
 
   socket.on('clientDraw', data => {
     socket.broadcast.emit('serverDraw', data);
-    canvasState.push({
-      drawX: data.drawX,
-      drawY: data.drawY,
-      brushSize: data.brushSize
-    });
+    canvasState.push(data);
   });
 });
 
