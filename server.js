@@ -15,8 +15,14 @@ const io = require('socket.io')(server);
 
 io.on('connection', socket => {
   console.log(`New Connection!\nID: ${socket.id}\nIP: ${socket.handshake.address}\n`);
+  socket.emit('canvasState', canvasState);
+  console.log(canvasState);
 
   socket.on('clientDraw', data => {
     socket.broadcast.emit('serverDraw', data);
+    canvasState.push({drawX: data.drawX, drawY: data.drawY});
   });
 });
+
+// Canvas state starts blank
+const canvasState = [];

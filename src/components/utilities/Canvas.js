@@ -33,6 +33,14 @@ const sketch = p => {
         console.log(`${data['drawX']}, ${data['drawY']}`);
     }
 
+    socket.on('canvasState', data => {
+        for (let i = 0; i < data.length; i++) {
+            p.noStroke();
+            p.fill(0);
+            p.ellipse(data[i].drawX, data[i].drawY, 36, 36);
+        }
+    });
+
     socket.on('serverDraw', data => {
         p.noStroke();
         p.fill(0);
