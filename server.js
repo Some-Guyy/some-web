@@ -5,7 +5,7 @@ const port = 8080;
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
@@ -15,12 +15,11 @@ const io = require('socket.io')(server);
 
 io.on('connection', socket => {
   console.log(`New Connection!\nID: ${socket.id}\nIP: ${socket.handshake.address}\n`);
-  socket.emit('canvasState', canvasState);
-  console.log(canvasState);
+  socket.on('requestCanvasState', _ => socket.emit('canvasState', canvasState));
 
   socket.on('clientDraw', data => {
     socket.broadcast.emit('serverDraw', data);
-    canvasState.push({drawX: data.drawX, drawY: data.drawY});
+    canvasState.push({ drawX: data.drawX, drawY: data.drawY });
   });
 });
 

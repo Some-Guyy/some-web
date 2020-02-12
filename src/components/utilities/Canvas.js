@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import P5Wrapper from 'react-p5-wrapper';
 import io from 'socket.io-client';
 
@@ -7,13 +7,13 @@ import '../../App.css';
 const socket = io.connect();
 
 export default function Canvas() {
-    // useEffect(_ => ); Retrieve previous drawings here.
     return (<P5Wrapper sketch={sketch}></P5Wrapper>)
 }
 
 const sketch = p => {
     // When canvas launches.
     p.setup = _ => {
+        socket.emit('requestCanvasState', '');
         p.createCanvas(1000, 800);
         p.background(255);
     }
