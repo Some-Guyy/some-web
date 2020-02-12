@@ -49,5 +49,9 @@ export default function Canvas() {
         });
     }
 
-    return (<P5Wrapper sketch={sketch}></P5Wrapper>)
+    return (
+        <React.Fragment>
+            <P5Wrapper sketch={sketch}></P5Wrapper>
+        </React.Fragment>
+    )
 }
