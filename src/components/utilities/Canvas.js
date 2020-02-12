@@ -8,6 +8,7 @@ const socket = io.connect();
 
 export default function Canvas() {
     const [brushSize, setBrushSize] = useState(20);
+    const [brushColor, setBrushColor] = useState(0);
     const sketch = p => {
         // When canvas launches.
         p.setup = _ => {
@@ -22,12 +23,13 @@ export default function Canvas() {
             const data = {
                 drawX: p.mouseX,
                 drawY: p.mouseY,
-                brushSize
+                brushSize,
+                brushColor
             };
             socket.emit('clientDraw', data);
 
             p.noStroke();
-            p.fill(0);
+            p.fill(brushColor);
             p.ellipse(p.mouseX, p.mouseY, brushSize);
             console.log(`${data['drawX']}, ${data['drawY']}`);
         }
@@ -35,14 +37,14 @@ export default function Canvas() {
         socket.on('canvasState', data => {
             for (let i = 0; i < data.length; i++) {
                 p.noStroke();
-                p.fill(0);
+                p.fill(data[i].brushColor);
                 p.ellipse(data[i].drawX, data[i].drawY, data[i].brushSize);
             }
         });
 
         socket.on('serverDraw', data => {
             p.noStroke();
-            p.fill(0);
+            p.fill(data.brushColor);
             p.ellipse(data.drawX, data.drawY, data.brushSize);
         });
     }
