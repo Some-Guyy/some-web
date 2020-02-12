@@ -5,6 +5,7 @@ import io from 'socket.io-client';
 import '../../App.css';
 
 const socket = io.connect();
+const brushSize = 20;
 
 export default function Canvas() {
     return (<P5Wrapper sketch={sketch}></P5Wrapper>)
@@ -23,13 +24,14 @@ const sketch = p => {
         // Send drawing data to the server.
         const data = {
             drawX: p.mouseX,
-            drawY: p.mouseY
+            drawY: p.mouseY,
+            brushSize
         };
         socket.emit('clientDraw', data);
 
         p.noStroke();
         p.fill(0);
-        p.ellipse(p.mouseX, p.mouseY, 36, 36);
+        p.ellipse(p.mouseX, p.mouseY, brushSize);
         console.log(`${data['drawX']}, ${data['drawY']}`);
     }
 
@@ -37,13 +39,13 @@ const sketch = p => {
         for (let i = 0; i < data.length; i++) {
             p.noStroke();
             p.fill(0);
-            p.ellipse(data[i].drawX, data[i].drawY, 36, 36);
+            p.ellipse(data[i].drawX, data[i].drawY, data[i].brushSize);
         }
     });
 
     socket.on('serverDraw', data => {
         p.noStroke();
         p.fill(0);
-        p.ellipse(data.drawX, data.drawY, 36, 36);
+        p.ellipse(data.drawX, data.drawY, data.brushSize);
     });
 }
