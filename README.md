@@ -3,4 +3,4 @@
 
 Just some website I developed when learning how to use [ReactJS](https://reactjs.org/).
 
-[Visit the website](https://somews.com/)
+[Visit the website!](https://somews.com/)
