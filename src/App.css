@@ -78,7 +78,7 @@ button:hover {
 
 #palette {
   display: inline-block;
-  width: 1000px;
+  width: 1320px;
   height: 80px;
   margin-top: 10px;
   padding: 10px;
@@ -114,6 +114,7 @@ button:hover {
 }
 .paletteSize:hover {
   cursor: pointer;
+  filter: brightness(900%);
 }
 
 .textLink {

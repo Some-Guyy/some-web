@@ -14,7 +14,7 @@ export default function Canvas() {
 
     // Palette for canvas
     const paletteSizes = [40, 30, 20, 10]
-    const paletteColors = ['red', 'green', 'blue'];
+    const paletteColors = ['white', 'silver', 'gray', 'black', 'navy', 'blue', 'aqua', 'teal', 'lime', 'green', 'olive', 'yellow', 'orange', 'red', 'maroon', 'purple', 'fuchsia'];
 
     // Change brush properties
     const pickSize = size => setBrushSize(size);
@@ -69,7 +69,7 @@ export default function Canvas() {
             <div id="palette">
                 {<div id="paletteCurrent" style={{ backgroundColor: brushColor }} />}
                 {paletteColors.map(color => <div className="paletteColor" onClick={_ => pickColor(color)} style={{ backgroundColor: color }} />)}
-                {paletteSizes.map(size => <div className="paletteSize" onClick={_ => pickSize(size)} style={{ width: `${size}px`, height: `${size}px`, backgroundColor: size === brushSize ? '#fff' : '#222', border: size === brushSize ? '2px solid #222' : '0px' }} />)}
+                {paletteSizes.map(size => <div className="paletteSize" onClick={_ => pickSize(size)} style={{ width: `${size}px`, height: `${size}px`, backgroundColor: size === brushSize ? '#fff' : '#222', border: size === brushSize ? '1.5px solid #222' : '0px' }} />)}
             </div>
             <P5Wrapper sketch={sketch} />
         </React.Fragment>
