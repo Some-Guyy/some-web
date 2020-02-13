@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import io from 'socket.io-client';
-
 import P5Wrapper from 'react-p5-wrapper';
-
 import '../../App.css';
 
 const socket = io.connect();
@@ -10,11 +8,11 @@ const socket = io.connect();
 export default function Canvas() {
     // Brush properties
     const [brushSize, setBrushSize] = useState(20);
-    const [brushColor, setBrushColor] = useState('black');
+    const [brushColor, setBrushColor] = useState('white');
 
     // Palette for canvas
     const paletteSizes = [40, 30, 20, 10]
-    const paletteColors = ['white', 'silver', 'gray', 'black', 'navy', 'blue', 'aqua', 'teal', 'lime', 'green', 'olive', 'yellow', 'orange', 'red', 'maroon', 'purple', 'fuchsia'];
+    const paletteColors = ['white', 'silver', 'gray', '#222', 'navy', 'blue', 'aqua', 'teal', 'lime', 'green', 'olive', 'yellow', 'orange', 'red', 'maroon', 'purple', 'fuchsia'];
 
     // Change brush properties
     const pickSize = size => setBrushSize(size);
@@ -25,8 +23,7 @@ export default function Canvas() {
         // When canvas launches.
         p.setup = _ => {
             socket.emit('requestCanvasState', '');
-            p.createCanvas(1800, 800);
-            p.background(255);
+            p.createCanvas(1320, 800);
         }
 
         // When pointer is in canvas.
@@ -66,6 +63,7 @@ export default function Canvas() {
 
     return (
         <React.Fragment>
+            <p style={{ fontSize: '30px' }}>Hello!</p>
             <div id="palette">
                 {<div id="paletteCurrent" style={{ backgroundColor: brushColor }} />}
                 {paletteColors.map(color => <div className="paletteColor" onClick={_ => pickColor(color)} style={{ backgroundColor: color }} />)}

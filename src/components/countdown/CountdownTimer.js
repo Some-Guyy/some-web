@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
 import '../../App.css';
 
 export default class CountdownTimer extends Component {
@@ -88,8 +86,4 @@ const styleButton = {
     fontFamily: 'Manjari',
     fontSize: '16px',
     cursor: 'pointer'
-}
-
-CountdownTimer.propTypes = {
-    date: PropTypes.object.isRequired
 }

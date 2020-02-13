@@ -1,15 +1,14 @@
 import React from 'react';
+import './App.css';
 
 import CookieNotice from './components/utilities/CookieNotice';
-import Body from './components/layout/Body';
-
-import './App.css';
+import Layout from './components/layout/Layout';
 
 export default function App() {
   return (
     <React.Fragment>
       <CookieNotice />
-      <Body />
+      <Layout />
     </React.Fragment>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-
 import '../../App.css';
+
 const pckg = require('../../../package.json')
 
 export default function Footer() {

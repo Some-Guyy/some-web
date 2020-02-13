@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import CountdownTimer from './CountdownTimer';
-
 import '../../App.css';
+
+import CountdownTimer from './CountdownTimer';
 
 export default class Countdown extends Component {
     state = {
