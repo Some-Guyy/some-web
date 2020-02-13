@@ -76,6 +76,14 @@ button:hover {
   color: aqua;
 }
 
+.app {
+  display: inline-block;
+  margin: 20px;
+}
+.app:hover {
+  cursor: pointer;
+}
+
 #palette {
   display: inline-block;
   width: 1320px;
@@ -117,16 +125,28 @@ button:hover {
   filter: brightness(900%);
 }
 
-.textLink {
+.textLinkLight {
   text-decoration: underline;
   color: aqua;
 }
-.textLink:hover {
+.textLinkLight:hover {
   cursor: pointer;
   color: #fff;
 }
-.textLink:active {
+.textLinkLight:active {
   color: #3dd465;
+}
+
+.textLinkDark {
+  text-decoration: underline;
+  color: blue;
+}
+.textLinkDark:hover {
+  cursor: pointer;
+  color: #222;
+}
+.textLinkDark:active {
+  color: aqua;
 }
 
 .disclaimer {
