@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const app = express();
 const port = 8080;
@@ -9,7 +10,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-// Websocket server stuff
+// Websocket server stuff.
 const server = app.listen(port, _ => console.log(`Some website listening on port ${port}!\n`));
 const io = require('socket.io')(server);
 
@@ -23,5 +24,7 @@ io.on('connection', socket => {
   });
 });
 
-// Canvas state starts blank
-const canvasState = [];
+// Loading and saving canvas state.
+const rawCanvasState = fs.readFileSync('data/canvasState.json'); // Initial loading of canvasState.
+const canvasState = JSON.parse(rawCanvasState);
+setInterval(_ => fs.writeFileSync('data/canvasState.json', JSON.stringify(canvasState)), 5000);
