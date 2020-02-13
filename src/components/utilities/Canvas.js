@@ -22,7 +22,7 @@ export default function Canvas() {
         // When canvas launches.
         p.setup = _ => {
             socket.emit('requestCanvasState', '');
-            p.createCanvas(1000, 800);
+            p.createCanvas(1800, 800);
             p.background(255);
         }
 
