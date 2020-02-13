@@ -23,7 +23,7 @@ export default function Canvas() {
         // When canvas launches.
         p.setup = _ => {
             socket.emit('requestCanvasState', '');
-            p.createCanvas(1320, 800);
+            p.createCanvas(1320, 700);
         }
 
         // When pointer is in canvas.
@@ -63,7 +63,6 @@ export default function Canvas() {
 
     return (
         <React.Fragment>
-            <p style={{ fontSize: '30px' }}>Hello!</p>
             <div id="palette">
                 {<div id="paletteCurrent" style={{ backgroundColor: brushColor }} />}
                 {paletteColors.map(color => <div className="paletteColor" onClick={_ => pickColor(color)} style={{ backgroundColor: color }} />)}

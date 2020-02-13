@@ -9,10 +9,10 @@ export default function Layout() {
   const [appView, setAppView] = useState('home');
   const appSelect = appName => setAppView(appName);
   return (
-    <React.Fragment>
+    <div id="layout">
       <Header appSelect={appSelect} />
       <Body appView={appView} appSelect={appSelect} />
       <Footer />
-    </React.Fragment>
+    </div>
   )
 }

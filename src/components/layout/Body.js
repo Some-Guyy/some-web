@@ -6,12 +6,12 @@ import Countdown from '../countdown/Countdown';
 
 export default function Body(props) {
     return (
-        <React.Fragment>
+        <div id="body">
             {
                 props.appView === 'home'
                     ? <Home appSelect={props.appSelect} />
                     : <Countdown />
             }
-        </React.Fragment>
+        </div>
     )
 }
