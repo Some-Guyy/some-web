@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import P5Wrapper from 'react-p5-wrapper';
 import io from 'socket.io-client';
+
+import P5Wrapper from 'react-p5-wrapper';
 
 import '../../App.css';
 
