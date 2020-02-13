@@ -8,14 +8,17 @@ import '../../App.css';
 const socket = io.connect();
 
 export default function Canvas() {
+    // Brush properties
     const [brushSize, setBrushSize] = useState(20);
     const [brushColor, setBrushColor] = useState('black');
 
-    // Change brush properties
-    const pickColor = color => setBrushColor(color);
-
     // Palette for canvas
+    const paletteSizes = [40, 30, 20, 10]
     const paletteColors = ['red', 'green', 'blue'];
+
+    // Change brush properties
+    const pickSize = size => setBrushSize(size);
+    const pickColor = color => setBrushColor(color);
 
     // Canvas
     const sketch = p => {
@@ -25,6 +28,9 @@ export default function Canvas() {
             p.createCanvas(1800, 800);
             p.background(255);
         }
+
+        // When pointer is in canvas.
+        p.draw = _ => p.cursor('crosshair');
 
         // When drawing.
         p.mouseDragged = _ => {
@@ -39,7 +45,7 @@ export default function Canvas() {
 
             p.noStroke();
             p.fill(brushColor);
-            p.ellipse(p.mouseX, p.mouseY, brushSize);
+            p.circle(p.mouseX, p.mouseY, brushSize);
             console.log(`${data['drawX']}, ${data['drawY']}`);
         }
 
@@ -47,14 +53,14 @@ export default function Canvas() {
             for (let i = 0; i < data.length; i++) {
                 p.noStroke();
                 p.fill(data[i].brushColor);
-                p.ellipse(data[i].drawX, data[i].drawY, data[i].brushSize);
+                p.circle(data[i].drawX, data[i].drawY, data[i].brushSize);
             }
         });
 
         socket.on('serverDraw', data => {
             p.noStroke();
             p.fill(data.brushColor);
-            p.ellipse(data.drawX, data.drawY, data.brushSize);
+            p.circle(data.drawX, data.drawY, data.brushSize);
         });
     }
 
@@ -63,8 +69,9 @@ export default function Canvas() {
             <div id="palette">
                 {<div id="paletteCurrent" style={{ backgroundColor: brushColor }} />}
                 {paletteColors.map(color => <div className="paletteColor" onClick={_ => pickColor(color)} style={{ backgroundColor: color }} />)}
+                {paletteSizes.map(size => <div className="paletteSize" onClick={_ => pickSize(size)} style={{ width: `${size}px`, height: `${size}px`, backgroundColor: size === brushSize ? '#fff' : '#222', border: size === brushSize ? '2px solid #222' : '0px' }} />)}
             </div>
-            <P5Wrapper sketch={sketch}></P5Wrapper>
+            <P5Wrapper sketch={sketch} />
         </React.Fragment>
     )
 }
