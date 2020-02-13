@@ -9,7 +9,7 @@ const socket = io.connect();
 
 export default function Canvas() {
     const [brushSize, setBrushSize] = useState(20);
-    const [brushColor, setBrushColor] = useState(0);
+    const [brushColor, setBrushColor] = useState('black');
 
     // Change brush properties
     const pickColor = color => setBrushColor(color);
@@ -61,6 +61,7 @@ export default function Canvas() {
     return (
         <React.Fragment>
             <div id="palette">
+                {<div className="paletteColor" style={{ borderRadius: '0px', marginRight: '30px', backgroundColor: brushColor }} />}
                 {paletteColors.map(color => <div className="paletteColor" onClick={_ => pickColor(color)} style={{ backgroundColor: color }} />)}
             </div>
             <P5Wrapper sketch={sketch}></P5Wrapper>

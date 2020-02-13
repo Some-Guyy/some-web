@@ -78,7 +78,8 @@ button:hover {
 #palette {
   display: inline-block;
   width: 1000px;
-  height: 150px;
+  height: 80px;
+  margin: 5px;
   padding: 10px;
   background-color: antiquewhite;
 }
