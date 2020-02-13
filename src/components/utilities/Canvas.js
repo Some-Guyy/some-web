@@ -43,7 +43,6 @@ export default function Canvas() {
             p.noStroke();
             p.fill(brushColor);
             p.circle(p.mouseX, p.mouseY, brushSize);
-            console.log(`${data['drawX']}, ${data['drawY']}`);
         }
 
         socket.on('canvasState', data => {
