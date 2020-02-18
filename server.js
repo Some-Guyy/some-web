@@ -19,6 +19,12 @@ io.on('connection', socket => {
   socket.on('requestCanvasState', _ => socket.emit('canvasState', canvasState));
 
   socket.on('clientDraw', data => {
+    data.ID = socket.id;
+    if (socket.handshake.headers['x-forwarded-for'] === undefined) {
+      data.IP = 'undefined'
+    } else {
+      data.IP = socket.handshake.headers['x-forwarded-for'];
+    }
     socket.broadcast.emit('serverDraw', data);
     canvasState.push(data);
   });
