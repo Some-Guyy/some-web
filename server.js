@@ -15,7 +15,7 @@ const server = app.listen(port, _ => console.log(`Some website listening on port
 const io = require('socket.io')(server);
 
 io.on('connection', socket => {
-  console.log(`New Connection!\nID: ${socket.id}\nIP: ${socket.handshake.address}\n`);
+  console.log(`New Connection!\nID: ${socket.id}\nIP: ${socket.handshake.headers['x-forwarded-for']}\n`);
   socket.on('requestCanvasState', _ => socket.emit('canvasState', canvasState));
 
   socket.on('clientDraw', data => {
