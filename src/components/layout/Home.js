@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../App.css';
 
 import Canvas from '../utilities/Canvas';
-import clockIcon from '../../assets/icons/icons8-clock-128.png';
+import clockIcon from '../../assets/icons/Clock.png';
 
 export default function AppList() {
     const apps = [{ name: 'Countdown', route: '/countdown', iconPath: clockIcon }];
