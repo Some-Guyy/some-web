@@ -27,4 +27,4 @@ io.on('connection', socket => {
 // Loading and saving canvas state.
 const rawCanvasState = fs.readFileSync('data/canvasState.json'); // Initial loading of canvasState.
 const canvasState = JSON.parse(rawCanvasState);
-setInterval(_ => fs.writeFileSync('data/canvasState.json', JSON.stringify(canvasState)), 5000);
+setInterval(_ => fs.writeFileSync('data/canvasState.json', JSON.stringify(canvasState)), 1000);
