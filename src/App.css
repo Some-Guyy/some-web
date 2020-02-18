@@ -68,6 +68,10 @@ button:hover {
 }
 
 /* Part-specific CSS below. */
+#headerText {
+  color: #fff;
+  text-decoration: none;
+}
 #headerText:hover {
   cursor: pointer;
   text-decoration: underline;
