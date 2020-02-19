@@ -16,13 +16,20 @@ console.log = log => {
   logStdout.write(`${util.format(log)}\n`);
 }
 
+// Load canvas state.
+if (fs.existsSync(canvasPath)) {
+  var canvasState = JSON.parse(fs.readFileSync(canvasPath));
+} else {
+  var canvasState = JSON.parse('[]'); // Create a new canvasState if it doesn't exist.
+}
+
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-// Websocket server stuff.
+// Websocket server.
 const server = app.listen(port, _ => console.log(`Server startup success!\nTime: ${new Date().toString()}\nPort: ${port}\n`));
 const io = require('socket.io')(server);
 
@@ -39,15 +46,6 @@ io.on('connection', socket => {
     data.ID = socket.id;
     socket.broadcast.emit('serverDraw', data);
     canvasState.push(data);
+    fs.writeFileSync(canvasPath, JSON.stringify(canvasState))
   });
 });
-
-// Load canvas state.
-if (fs.existsSync(canvasPath)) {
-  var canvasState = JSON.parse(fs.readFileSync(canvasPath));
-} else {
-  var canvasState = JSON.parse('[]'); // Create a new canvasState if it doesn't exist.
-}
-
-// Save canvas state periodically.
-setInterval(_ => fs.writeFileSync(canvasPath, JSON.stringify(canvasState)), 1000);
