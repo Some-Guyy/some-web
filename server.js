@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
+const canvasPath = path.join(__dirname, 'logs', 'canvas.json');
+
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/*', function (req, res) {
@@ -15,7 +17,8 @@ const server = app.listen(port, _ => console.log(`Some website listening on port
 const io = require('socket.io')(server);
 
 io.on('connection', socket => {
-  console.log(`New Connection!\nID: ${socket.id}\nIP: ${socket.handshake.headers['x-forwarded-for']}\n`);
+  const logConnect = `New Connection!\nTime: ${new Date().toString()}\nID: ${socket.id}\nIP: ${socket.handshake.headers['x-forwarded-for']}\n`;
+  console.log(logConnect);
   socket.on('requestCanvasState', _ => socket.emit('canvasState', canvasState));
 
   socket.on('clientDraw', data => {
@@ -30,7 +33,12 @@ io.on('connection', socket => {
   });
 });
 
-// Loading and saving canvas state.
-const rawCanvasState = fs.readFileSync('data/canvasState.json'); // Initial loading of canvasState.
-const canvasState = JSON.parse(rawCanvasState);
-setInterval(_ => fs.writeFileSync('data/canvasState.json', JSON.stringify(canvasState)), 1000);
+// Load canvas state.
+if (fs.existsSync(canvasPath)) {
+  var canvasState = JSON.parse(fs.readFileSync(canvasPath));
+} else {
+  var canvasState = JSON.parse('[]'); // Create a new canvasState if it doesn't exist.
+}
+
+// Save canvas state
+setInterval(_ => fs.writeFileSync(canvasPath, JSON.stringify(canvasState)), 1000);
