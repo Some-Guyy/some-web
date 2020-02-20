@@ -64,8 +64,8 @@ export default function Canvas() {
         <React.Fragment>
             <div id="palette">
                 {<div id="paletteCurrent" style={{ backgroundColor: brushColor }} />}
-                {paletteColors.map(color => <div className="paletteColor" onClick={_ => pickColor(color)} style={{ backgroundColor: color }} />)}
-                {paletteSizes.map(size => <div className="paletteSize" onClick={_ => pickSize(size)} style={{ width: `${size}px`, height: `${size}px`, backgroundColor: size === brushSize ? '#fff' : '#222', border: size === brushSize ? '1.5px solid #222' : '0px' }} />)}
+                {paletteColors.map(color => <div className="paletteColor" onClick={_ => pickColor(color)} style={{ backgroundColor: color }} key={color} />)}
+                {paletteSizes.map(size => <div className="paletteSize" onClick={_ => pickSize(size)} style={{ width: `${size}px`, height: `${size}px`, backgroundColor: size === brushSize ? '#fff' : '#222', border: size === brushSize ? '1.5px solid #222' : '0px' }} key={size} />)}
             </div>
             <P5Wrapper sketch={sketch} />
         </React.Fragment>
