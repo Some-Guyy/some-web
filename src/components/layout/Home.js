@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css';
 
@@ -7,6 +7,7 @@ import clockIcon from '../../assets/icons/Clock.png';
 
 export default function AppList() {
     const apps = [{ name: 'Countdown', route: '/countdown', iconPath: clockIcon }];
+    useEffect(_ => document.getElementsByTagName('meta')['viewport'].content='width= 1920px;');
     return (
         <div style={{ textAlign: 'center', padding: '10px' }}>
             <p style={{ fontSize: '24px' }}>Hi, this is just some website.<br />While you're here, go ahead and leave your mark below!</p>
