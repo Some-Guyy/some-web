@@ -37,7 +37,7 @@ if (fs.existsSync(canvasPath)) {
 if (fs.existsSync(insightsPath)) {
   var insights = JSON.parse(fs.readFileSync(insightsPath));
 } else {
-  var insights = JSON.parse(`{"firstStartupTime": ${timeStartup}, "connections": 0}`); // Create a new canvasState if it doesn't exist.
+  var insights = JSON.parse(`{"firstStartupTime": "${timeStartup}", "connections": 0}`); // Create a new canvasState if it doesn't exist.
 }
 
 const server = app.listen(port, _ => console.log(`Server startup success!\nTime: ${timeStartup}\nPort: ${port}\n`));
