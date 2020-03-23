@@ -45,6 +45,7 @@ const io = require('socket.io')(server);
 
 io.on('connection', socket => {
   insights.connections++;
+  fs.writeFileSync(insightsPath, JSON.stringify(insights));
   console.log(`New Connection!\nTime: ${new Date().toString()}\nIP: ${socket.handshake.headers['x-forwarded-for']}\nID: ${socket.id}\n${insights.connections} connections since ${insights.firstStartupTime}\n`);
   socket.on('requestCanvasState', _ => socket.emit('canvasState', canvasState));
 
@@ -57,6 +58,6 @@ io.on('connection', socket => {
     data.ID = socket.id;
     socket.broadcast.emit('serverDraw', data);
     canvasState.push(data);
-    fs.writeFileSync(canvasPath, JSON.stringify(canvasState))
+    fs.writeFileSync(canvasPath, JSON.stringify(canvasState));
   });
 });
