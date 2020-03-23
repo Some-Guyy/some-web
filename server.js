@@ -7,6 +7,7 @@ const port = 8080;
 
 const logPath = path.join(__dirname, 'logs', 'console.log');
 const canvasPath = path.join(__dirname, 'logs', 'canvas.json');
+const insightsPath = path.join(__dirname, 'logs', 'insights.json');
 
 // Save console logs.
 const logFile = fs.createWriteStream(logPath, {flags: 'a'});
@@ -16,13 +17,6 @@ console.log = log => {
   logStdout.write(`${util.format(log)}\n`);
 }
 
-// Load canvas state.
-if (fs.existsSync(canvasPath)) {
-  var canvasState = JSON.parse(fs.readFileSync(canvasPath));
-} else {
-  var canvasState = JSON.parse('[]'); // Create a new canvasState if it doesn't exist.
-}
-
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/*', function (req, res) {
@@ -30,11 +24,28 @@ app.get('/*', function (req, res) {
 });
 
 // Websocket server.
-const server = app.listen(port, _ => console.log(`Server startup success!\nTime: ${new Date().toString()}\nPort: ${port}\n`));
+const timeStartup = new Date().toString();
+
+// Load canvas state.
+if (fs.existsSync(canvasPath)) {
+  var canvasState = JSON.parse(fs.readFileSync(canvasPath));
+} else {
+  var canvasState = JSON.parse('[]'); // Create a new canvasState if it doesn't exist.
+}
+
+// Load website insights.
+if (fs.existsSync(insightsPath)) {
+  var insights = JSON.parse(fs.readFileSync(insightsPath));
+} else {
+  var insights = JSON.parse(`{"firstStartupTime": ${timeStartup}, "connections": 0}`); // Create a new canvasState if it doesn't exist.
+}
+
+const server = app.listen(port, _ => console.log(`Server startup success!\nTime: ${timeStartup}\nPort: ${port}\n`));
 const io = require('socket.io')(server);
 
 io.on('connection', socket => {
-  console.log(`New Connection!\nTime: ${new Date().toString()}\nIP: ${socket.handshake.headers['x-forwarded-for']}\nID: ${socket.id}\n`);
+  insights.connections++;
+  console.log(`New Connection!\nTime: ${new Date().toString()}\nIP: ${socket.handshake.headers['x-forwarded-for']}\nID: ${socket.id}\n${insights.connections} connections since ${insights.firstStartupTime}\n`);
   socket.on('requestCanvasState', _ => socket.emit('canvasState', canvasState));
 
   socket.on('clientDraw', data => {
