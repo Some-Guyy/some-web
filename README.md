@@ -3,4 +3,4 @@
 
 Just a small website I built while learning how to use [ReactJS](https://reactjs.org/).
 
-[Visit the website!](https://somews.com/)
+Currently under construction
