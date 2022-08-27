@@ -1,0 +1,13 @@
+body.light-mode {
+    background-color: #fff;
+    transition: background-color 0.5s ease;
+}
+
+body.dark-mode {
+    background-color: #000;
+    transition: background-color 0.5s ease;
+}
+
+/* Background gradient for dark theme */
+/* background-color: #000000;
+background-image: linear-gradient(135deg, #000000 0%, #000000 33%, #063119 66%, #000000 100%); */

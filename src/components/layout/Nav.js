@@ -1,5 +1,5 @@
-import { Navbar, Button, Link, Text } from '@nextui-org/react'
-import { AcmeLogo } from './AcmeLogo.js'
+import { Navbar, Button, Link, Text } from '@nextui-org/react';
+import { AcmeLogo } from './AcmeLogo.js';
 
 const Nav = ({ brandColor }) => {
     return (
@@ -27,7 +27,7 @@ const Nav = ({ brandColor }) => {
                 </Navbar.Item>
             </Navbar.Content>
         </Navbar>
-    )
+    );
 }
 
-export default Nav
+export default Nav;
