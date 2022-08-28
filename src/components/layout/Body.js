@@ -1,7 +1,8 @@
 import Placeholder from '../Placeholder';
+import Themes from '../Themes';
 
 const Body = ({ brandColorId, setBrandColorId, brandColors }) => {
-    return <Placeholder brandColorId={brandColorId} setBrandColorId={setBrandColorId} brandColors={brandColors} />;
+    return <Themes brandColorId={brandColorId} setBrandColorId={setBrandColorId} brandColors={brandColors} />;
 }
 
 export default Body;
