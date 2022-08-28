@@ -3,7 +3,7 @@ import Layout from './components/layout/Layout';
 import useDarkMode from 'use-dark-mode';
 import './App.css';
 
-function App() {
+const App = () => {
   const lightTheme = createTheme({
     type: 'light'
   })
@@ -14,12 +14,9 @@ function App() {
 
   const darkMode = useDarkMode(false); // Apply light or dark theme depending on useDarkMode value
 
-  // Theme colors
-  const brandColor = 'success';
-
   return (
     <NextUIProvider theme={darkMode.value ? darkTheme : lightTheme}>
-      <Layout brandColor={brandColor} />
+      <Layout />
     </NextUIProvider>
   );
 }
