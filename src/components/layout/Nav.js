@@ -14,7 +14,7 @@ const Nav = ({ brandColorId, brandColors }) => {
             <Navbar.Brand>
                 <Navbar.Toggle showIn='xs' />
                 <Spacer x={0.5} />
-                <Image width={40} height={40} src='https://camo.githubusercontent.com/1834094317772d3ed032bbb84b68a97ae84c318caf5be7a22b11c7296d346e94/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3632353637303931373236333139363137342f3637393332333933373933343637313837332f426972622e706e67' showSkeleton alt='logo' />
+                <Image width={40} height={40} src='https://cdn.discordapp.com/attachments/625670917263196174/679323937934671873/Birb.png' showSkeleton alt='logo' />
                 <Spacer x={1} />
                 <Text b size='$2xl' color={brandColors[brandColorId].color}>
                     Some Website
