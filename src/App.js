@@ -12,7 +12,7 @@ const App = () => {
     type: 'dark'
   })
 
-  const darkMode = useDarkMode(false); // Apply light or dark theme depending on useDarkMode value
+  const darkMode = useDarkMode(true); // Apply light or dark theme depending on useDarkMode value
 
   return (
     <NextUIProvider theme={darkMode.value ? darkTheme : lightTheme}>

@@ -4,7 +4,7 @@ import Body from './Body';
 import useDarkMode from 'use-dark-mode';
 
 const Layout = () => {
-    const darkMode = useDarkMode(false);
+    const darkMode = useDarkMode(true);
     const [brandColorId, setBrandColorId] = React.useState(2);
 
     // Brand colors for both light and dark theme.

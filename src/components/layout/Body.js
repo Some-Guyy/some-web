@@ -2,12 +2,12 @@ import { Container, Text, Spacer, Switch, Button, useTheme } from '@nextui-org/r
 import useDarkMode from 'use-dark-mode';
 
 const Body = ({ brandColorId, setBrandColorId, brandColors }) => {
-    const darkMode = useDarkMode(false);
+    const darkMode = useDarkMode(true);
     const { type } = useTheme();
 
     return (
-        <Container>
-            <Container css={{ d: 'flex', flexWrap: 'nowrap', justifyContent: 'center' }}>
+        <Container fluid>
+            <Container fluid css={{ d: 'flex', flexWrap: 'nowrap', justifyContent: 'center' }}>
                 <Text h1 color={brandColors[brandColorId].color}>The current theme is: {type}</Text>
                 <Spacer x={2} />
                 <Switch
