@@ -4,7 +4,7 @@ import Nav from './Nav';
 import Body from './Body';
 
 const Layout = ({ darkMode }) => {
-  const [brandColorIndex, setBrandColorIndex] = React.useState(2);
+  const [brandColorIndex, setBrandColorIndex] = React.useState(2); // Brand color will be selected via index.
 
   // Brand colors for both light and dark theme.
   const allBrandColors = [

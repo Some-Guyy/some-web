@@ -5,6 +5,9 @@ import { GitHubIconDark, GitHubIconLight, MoonIcon, SunIcon } from '../Icons';
 
 const Nav = ({ darkMode, brandColorIndex, brandColors }) => {
     const location = useLocation();
+    const smallWidth = "sm"; // When browser width reaches this value we want to change certain content.
+
+    // List of pages to navigate to.
     const pages = [
         {
             name: "Home",
@@ -23,15 +26,15 @@ const Nav = ({ darkMode, brandColorIndex, brandColors }) => {
     return (
         <Navbar maxWidth='fluid' variant='sticky'>
             <Navbar.Brand>
-                <Navbar.Toggle showIn='xs' />
+                <Navbar.Toggle showIn={smallWidth} />
                 <Spacer x={0.5} />
                 <Image width={40} height={40} src='https://cdn.discordapp.com/attachments/625670917263196174/679323937934671873/Birb.png' showSkeleton alt='logo' />
                 <Spacer x={1} />
-                <Text b size='$2xl' color={brandColors[brandColorIndex].color}>
+                <Text b size='$3xl' color={brandColors[brandColorIndex].color}>
                     Some Website
                 </Text>
             </Navbar.Brand>
-            <Navbar.Content enableCursorHighlight activeColor={brandColors[brandColorIndex].colorStrict} hideIn='xs' variant='underline-rounded'>
+            <Navbar.Content enableCursorHighlight activeColor={brandColors[brandColorIndex].colorStrict} hideIn={smallWidth} variant='underline-rounded'>
                 {
                     pages.map(page => (
                         <Navbar.Item key={uuidv4()} isActive={true ? location.pathname === page.route : false} as={RouterLink} to={page.route}>
