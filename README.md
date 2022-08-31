@@ -10,4 +10,4 @@ When installing packages, there will be a warning:
 npm WARN Could not resolve dependency:
 npm WARN peer react@"^16.8.0" from use-dark-mode@2.3.1
 ```
-There isn't any actual conflicts, just [force](https://github.com/donavon/use-dark-mode/issues/69#issuecomment-805969670) it with the `--force` parameter.
+There aren't any actual conflicts, just [force](https://github.com/donavon/use-dark-mode/issues/69#issuecomment-805969670) it with the `--force` parameter.

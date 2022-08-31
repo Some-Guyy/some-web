@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <NextUIProvider theme={darkMode.value ? darkTheme : lightTheme}>
-      <Layout />
+      <Layout darkMode={darkMode} />
     </NextUIProvider>
   );
 }

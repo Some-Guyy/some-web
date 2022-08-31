@@ -1,30 +1,9 @@
-import { Container, Text, Spacer, Switch, Button, useTheme } from '@nextui-org/react';
-import useDarkMode from 'use-dark-mode';
+import { Container, Text, Spacer } from '@nextui-org/react';
 
-const Placeholder = ({ brandColorId, setBrandColorId, brandColors }) => {
-    const darkMode = useDarkMode(true);
-    const { type } = useTheme();
-
+const Placeholder = ({ brandColorIndex, brandColors }) => {
     return (
         <Container fluid>
-            <Container fluid css={{ d: 'flex', flexWrap: 'nowrap', justifyContent: 'center' }}>
-                <Text h1 color={brandColors[brandColorId].color}>The current theme is: {type}</Text>
-                <Spacer x={2} />
-                <Switch
-                    checked={darkMode.value}
-                    onChange={() => darkMode.toggle()}
-                    color={brandColors[brandColorId].colorStrict}
-                    size='xl'
-                    shadow
-                    squared
-                    css={{ alignSelf: 'center' }}
-                />
-                <Spacer x={2} />
-                {brandColors.map(color => (
-                    <Button key={color.id} auto rounded ghost shadow color={color.colorStrict} onPress={() => setBrandColorId(color.id)} css={{ alignSelf: 'center' }}>{color.name}</Button>
-                ))}
-            </Container>
-            <Text h2 color={brandColors[brandColorId].color}>Lorem ipsum dolor sit amet</Text>
+            <Text h2 color={brandColors[brandColorIndex].color}>Lorem ipsum dolor sit amet</Text>
             <Text size="$lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                 labore et dolore magna aliqua. Purus gravida quis blandit turpis. Augue neque gravida in
