@@ -7,7 +7,7 @@ const Themes = ({ darkMode, brandColorIndex, setBrandColorIndex, brandColors }) 
     return (
         <Container fluid>
             <Row justify='center'>
-                <Text h1 color={brandColors[brandColorIndex].color}>Select a theme below!</Text>
+                <Text size='$5xl' color={brandColors[brandColorIndex].color}>Select a theme below!</Text>
             </Row>
             <Spacer y={1} />
             <Row justify='center'>
