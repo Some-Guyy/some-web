@@ -38,11 +38,13 @@ const Layout = ({ darkMode }) => {
   // This will be the colors used based on theme.
   // Certain components with limited set of colors to choose from will use colorStrict key instead.
   const brandColors = allBrandColors.map(color => ({ name: color.name, color: darkMode.value ? color.dark : color.light, colorStrict: color.dark }));
+  const brandColor = brandColors[brandColorIndex].color
+  const brandColorStrict = brandColors[brandColorIndex].colorStrict
 
   return (
     <Router>
-      <Nav darkMode={darkMode} brandColorIndex={brandColorIndex} brandColors={brandColors} />
-      <Body darkMode={darkMode} brandColorIndex={brandColorIndex} setBrandColorIndex={setBrandColorIndex} brandColors={brandColors} />
+      <Nav darkMode={darkMode} brandColor={brandColor} brandColorStrict={brandColorStrict} />
+      <Body darkMode={darkMode} brandColor={brandColor} brandColorStrict={brandColorStrict} setBrandColorIndex={setBrandColorIndex} brandColors={brandColors} />
     </Router>
   );
 }

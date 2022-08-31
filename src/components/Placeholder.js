@@ -1,9 +1,9 @@
 import { Container, Text, Spacer } from '@nextui-org/react';
 
-const Placeholder = ({ brandColorIndex, brandColors }) => {
+const Placeholder = ({ brandColor }) => {
     return (
         <Container fluid>
-            <Text h2 color={brandColors[brandColorIndex].color}>Lorem ipsum dolor sit amet</Text>
+            <Text h2 color={brandColor}>Lorem ipsum dolor sit amet</Text>
             <Text size="$lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                 labore et dolore magna aliqua. Purus gravida quis blandit turpis. Augue neque gravida in
