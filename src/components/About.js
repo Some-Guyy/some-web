@@ -7,17 +7,17 @@ const About = ({ darkMode, brandColor, brandColorStrict }) => {
     return (
         <Container fluid>
             <Row justify='center'>
-                <Text size='$4xl' color={brandColor}>About this website</Text>
+                <Text size='$5xl' color={brandColor}>About this website</Text>
             </Row>
             <Row justify='center'>
-                <Text>There isn't really much about this website...</Text>
+                <Text size='$2xl'>Version {pckg.version}</Text>
             </Row>
             <Row justify='center'>
-                <Text>Copyright Ⓢ 2022 Some Guy. Some Rights Reserved. v{pckg.version}</Text>
+                <Text>Copyright Ⓢ 2022 Some Guy. Some Rights Reserved.</Text>
             </Row>
             <Spacer y={1} />
             <Container sm>
-                <Collapse.Group bordered accordion={false}>
+                <Collapse.Group shadow accordion={false}>
                     <Collapse title='Acknowledgments' subtitle='This website was made with the help of these open source libraries' contentLeft={darkMode.value ? <HeartIconDark /> : <HeartIconLight />}>
                         <Link color={brandColorStrict} href='https://reactjs.org/' target='_blank'>
                             React
@@ -39,7 +39,7 @@ const About = ({ darkMode, brandColor, brandColorStrict }) => {
                         </Link>
                     </Collapse>
                     <Collapse title='Licenses' subtitle='These are the licenses for the libraries used (warning: a LOT of licenses)' contentLeft={darkMode.value ? <CertificationIconDark /> : <CertificationIconLight />}>
-                        <Licenses />
+                        <Licenses brandColorStrict={brandColorStrict} />
                     </Collapse>
                 </Collapse.Group>
             </Container>
