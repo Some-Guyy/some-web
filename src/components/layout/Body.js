@@ -10,7 +10,7 @@ const Body = ({ darkMode, brandColor, brandColorStrict, setBrandColorIndex, bran
         <Routes>
             <Route path='/' element={<Placeholder brandColor={brandColor} />} />
             <Route path='/themes' element={<Themes darkMode={darkMode} brandColor={brandColor} setBrandColorIndex={setBrandColorIndex} brandColors={brandColors} />} />
-            <Route path='/about' element={<About brandColor={brandColor} />} />
+            <Route path='/about' element={<About darkMode={darkMode} brandColor={brandColor} brandColorStrict={brandColorStrict} />} />
             <Route path='*' element={
                 <Container fluid>
                     <Row justify='center'>
