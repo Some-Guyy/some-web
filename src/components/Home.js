@@ -1,6 +1,6 @@
 import { Container, Text, Row } from '@nextui-org/react';
 
-const Placeholder = ({ brandColor }) => {
+const Home = ({ brandColor }) => {
     return (
         <Container fluid>
             <Row justify='center'>
@@ -17,4 +17,4 @@ const Placeholder = ({ brandColor }) => {
     );
 }
 
-export default Placeholder;
+export default Home;

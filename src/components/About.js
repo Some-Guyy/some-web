@@ -38,7 +38,7 @@ const About = ({ darkMode, brandColor, brandColorStrict }) => {
                             Express
                         </Link>
                     </Collapse>
-                    <Collapse title='Licenses' subtitle='These are the licenses for the libraries used (warning: a LOT of licenses)' contentLeft={darkMode.value ? <CertificationIconDark /> : <CertificationIconLight />}>
+                    <Collapse title='Licenses' subtitle='These are the licenses for the open source libraries used' contentLeft={darkMode.value ? <CertificationIconDark /> : <CertificationIconLight />}>
                         <Licenses brandColorStrict={brandColorStrict} />
                     </Collapse>
                 </Collapse.Group>

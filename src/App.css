@@ -1,13 +1,15 @@
-body {
-    min-height: 100vh;
-}
-
 body.light-mode {
     background-color: #EfE4D6;
     transition: background-color 0.5s ease;
+    min-height: 100vh;
 }
 
 body.dark-mode {
     background-color: #000;
     transition: background-color 0.5s ease;
+    min-height: 100vh;
+}
+
+.nextui-button-text {
+    z-index: 0 !important;
 }

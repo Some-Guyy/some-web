@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Container, Text, Row } from '@nextui-org/react';
-import Placeholder from '../Placeholder';
+import Home from '../Home';
 import Themes from '../Themes';
 import About from '../About';
 
@@ -8,7 +8,7 @@ const Body = ({ darkMode, brandColor, brandColorStrict, setBrandColorIndex, bran
     const location = useLocation();
     return (
         <Routes>
-            <Route path='/' element={<Placeholder brandColor={brandColor} />} />
+            <Route path='/' element={<Home brandColor={brandColor} />} />
             <Route path='/themes' element={<Themes darkMode={darkMode} brandColor={brandColor} setBrandColorIndex={setBrandColorIndex} brandColors={brandColors} />} />
             <Route path='/about' element={<About darkMode={darkMode} brandColor={brandColor} brandColorStrict={brandColorStrict} />} />
             <Route path='*' element={
