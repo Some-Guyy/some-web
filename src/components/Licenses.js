@@ -1,3 +1,5 @@
+// To update license data. Install "license-checker" from npm, then run "license-checker --json --customPath a > ./src/assets/data/licenses.json" on the command line.
+
 import React from 'react';
 import { Row, Text, Link, Spacer } from '@nextui-org/react';
 import { v4 as uuidv4 } from 'uuid';
