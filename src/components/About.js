@@ -7,7 +7,7 @@ const About = ({ darkMode, brandColor, brandColorStrict }) => {
     return (
         <Container fluid>
             <Row justify='center'>
-                <Text size='$5xl' color={brandColor}>About this website</Text>
+                <Text size='$4xl' color={brandColor}>About this website</Text>
             </Row>
             <Row justify='center'>
                 <Text size='$2xl'>Version {pckg.version}</Text>
