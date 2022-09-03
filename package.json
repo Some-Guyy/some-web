@@ -1,7 +1,12 @@
 {
   "name": "some-web",
+  "description": "Just some website",
   "version": "1.0.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Some-Guyy/some-web"
+  },
   "dependencies": {
     "@nextui-org/react": "^1.0.0-beta.10",
     "@testing-library/jest-dom": "^5.16.5",
