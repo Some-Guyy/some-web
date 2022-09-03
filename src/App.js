@@ -12,7 +12,8 @@ const App = () => {
     type: 'dark'
   })
 
-  const darkMode = useDarkMode(true); // Apply light or dark theme depending on useDarkMode value.
+  // Apply light or dark theme depending on useDarkMode value. It gets stored in localStorage.
+  const darkMode = useDarkMode(true);
 
   return (
     <NextUIProvider theme={darkMode.value ? darkTheme : lightTheme}>

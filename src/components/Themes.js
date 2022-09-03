@@ -4,6 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { ColorFillIconDark, ColorFillIconLight } from './Icons';
 
 const Themes = ({ darkMode, brandColor, setBrandColorIndex, brandColors }) => {
+    const changeTheme = index => {
+        setBrandColorIndex(index);
+        localStorage.setItem('brandColorIndex', index);
+    }
     return (
         <Container fluid>
             <Row justify='center'>
@@ -13,7 +17,7 @@ const Themes = ({ darkMode, brandColor, setBrandColorIndex, brandColors }) => {
             <Row justify='center' wrap='wrap'>
                 {brandColors.map((color, index) => (
                     <React.Fragment key={uuidv4()}>
-                        <Button key={uuidv4()} auto rounded ghost shadow color={color.colorStrict} onPress={() => setBrandColorIndex(index)} icon={darkMode.value ? <ColorFillIconDark /> : <ColorFillIconLight />}>{color.name}
+                        <Button key={uuidv4()} auto rounded ghost shadow color={color.colorStrict} onPress={() => changeTheme(index)} icon={darkMode.value ? <ColorFillIconDark /> : <ColorFillIconLight />}>{color.name}
                         </Button><Spacer key={uuidv4()} x={1} />
                     </React.Fragment>
                 ))}
