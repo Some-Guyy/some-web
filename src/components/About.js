@@ -25,8 +25,8 @@ const About = ({ darkMode, brandColor, brandColorStrict }) => {
                         <Link color={brandColorStrict} href='https://nextui.org/' target='_blank'>
                             NextUI
                         </Link>
-                        <Link color={brandColorStrict} href='https://github.com/donavon/use-dark-mode' target='_blank'>
-                            use-dark-mode
+                        <Link color={brandColorStrict} href='https://github.com/transitive-bullshit/use-dark-mode' target='_blank'>
+                            @fisch0920/use-dark-mode
                         </Link>
                         <Link color={brandColorStrict} href='https://github.com/uuidjs/uuid' target='_blank'>
                             uuid
