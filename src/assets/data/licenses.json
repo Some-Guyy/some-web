@@ -1772,6 +1772,18 @@
     "licenseText": "Copyright OpenJS Foundation and other contributors, <www.openjsf.org>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.",
     "copyright": "Copyright OpenJS Foundation and other contributors, <www.openjsf.org>"
   },
+  "@fisch0920/use-dark-mode@2.4.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/transitive-bullshit/use-dark-mode",
+    "publisher": "donavon",
+    "errno": -2,
+    "syscall": "open",
+    "code": "ENOENT",
+    "path": "/home/dude/Programming/some-web/node_modules/@fisch0920/use-dark-mode",
+    "licenseFile": "/home/dude/Programming/some-web/node_modules/@fisch0920/use-dark-mode/LICENSE",
+    "licenseText": "MIT License\n\nCopyright (c) 2018-present Donavon West\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.",
+    "copyright": "Copyright (c) 2018-present Donavon West"
+  },
   "@formatjs/ecma402-abstract@1.12.0": {
     "licenses": "MIT",
     "repository": "https://github.com/formatjs/formatjs",
@@ -13394,7 +13406,7 @@
     "licenseText": "The MIT License (MIT)\n\nCopyright (C) 2011 VMware, Inc.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.",
     "copyright": "Copyright (C) 2011 VMware, Inc."
   },
-  "some-web@1.0.1": {
+  "some-web@1.0.2": {
     "licenses": "UNLICENSED",
     "private": true,
     "repository": "https://github.com/Some-Guyy/some-web",
@@ -13403,7 +13415,7 @@
     "code": "ENOENT",
     "path": "/home/dude/Programming/some-web",
     "licenseFile": "/home/dude/Programming/some-web/README.md",
-    "licenseText": "# Some Website\n<img src=\"https://cdn.discordapp.com/attachments/625670917263196174/679323937934671873/Birb.png\" width=\"100\" />\n\nJust a small website I built while learning how to use [React](https://reactjs.org/).\n\nThere isn't much to see now.\n\n## Known Issues\nWhen installing packages, there may be a warning similar to this:\n```\nnpm WARN Could not resolve dependency:\nnpm WARN peer react@\"^16.8.0\" from use-dark-mode@2.3.1\n```\nThere aren't any actual conflicts, just [force](https://github.com/donavon/use-dark-mode/issues/69#issuecomment-805969670) it with the `--force` parameter."
+    "licenseText": "# Some Website\n<img src=\"https://cdn.discordapp.com/attachments/625670917263196174/679323937934671873/Birb.png\" width=\"100\" />\n\nJust a small website I built while learning how to use [React](https://reactjs.org/).\n\nThere isn't much to [see](https://www.somews.com) for now."
   },
   "source-list-map@2.0.1": {
     "licenses": "MIT",
@@ -14594,18 +14606,6 @@
     "licenseText": "The MIT License (MIT)\n\nCopyright (c) 2015 Unshift.io, Arnout Kazemier,  the Contributors.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.",
     "copyright": "Copyright (c) 2015 Unshift.io, Arnout Kazemier,  the Contributors."
   },
-  "use-dark-mode@2.3.1": {
-    "licenses": "MIT",
-    "repository": "https://github.com/donavon/use-dark-mode",
-    "publisher": "donavon",
-    "errno": -2,
-    "syscall": "open",
-    "code": "ENOENT",
-    "path": "/home/dude/Programming/some-web/node_modules/use-dark-mode",
-    "licenseFile": "/home/dude/Programming/some-web/node_modules/use-dark-mode/LICENSE",
-    "licenseText": "MIT License\n\nCopyright (c) 2018-present Donavon West\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.",
-    "copyright": "Copyright (c) 2018-present Donavon West"
-  },
   "use-persisted-state@0.3.3": {
     "licenses": "MIT",
     "repository": "https://github.com/donavon/use-persisted-state",
@@ -14613,8 +14613,8 @@
     "errno": -2,
     "syscall": "open",
     "code": "ENOENT",
-    "path": "/home/dude/Programming/some-web/node_modules/use-dark-mode/node_modules/use-persisted-state",
-    "licenseFile": "/home/dude/Programming/some-web/node_modules/use-dark-mode/node_modules/use-persisted-state/LICENSE",
+    "path": "/home/dude/Programming/some-web/node_modules/@fisch0920/use-dark-mode/node_modules/use-persisted-state",
+    "licenseFile": "/home/dude/Programming/some-web/node_modules/@fisch0920/use-dark-mode/node_modules/use-persisted-state/LICENSE",
     "licenseText": "MIT License\n\nCopyright (c) 2018-present Donavon West\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.",
     "copyright": "Copyright (c) 2018-present Donavon West"
   },
