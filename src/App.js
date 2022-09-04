@@ -1,6 +1,6 @@
 import { createTheme, NextUIProvider } from '@nextui-org/react';
 import Layout from './components/layout/Layout';
-import useDarkMode from 'use-dark-mode';
+import useDarkMode from '@fisch0920/use-dark-mode';
 import './App.css';
 
 const App = () => {
