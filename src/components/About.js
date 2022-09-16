@@ -29,7 +29,7 @@ const About = ({ darkMode, brandColor, brandColorStrict }) => {
             <Spacer y={1} />
             <Container sm>
                 <Collapse.Group shadow accordion={false}>
-                    <Collapse title='Acknowledgments' subtitle='This website was made with the help of these open source libraries' contentLeft={darkMode.value ? <HeartIconDark /> : <HeartIconLight />}>
+                    <Collapse title='Acknowledgments' subtitle='The website was made with the help of these resources' contentLeft={darkMode.value ? <HeartIconDark /> : <HeartIconLight />}>
                         {
                             acknowledgeArray.map(acknowledgement => (
                                 <Link key={uuidv4()} color={brandColorStrict} href={acknowledgement[1]} target='_blank'>
@@ -38,7 +38,7 @@ const About = ({ darkMode, brandColor, brandColorStrict }) => {
                             ))
                         }
                     </Collapse>
-                    <Collapse title='Licenses' subtitle='These are the licenses for the open source libraries used' contentLeft={darkMode.value ? <CertificationIconDark /> : <CertificationIconLight />}>
+                    <Collapse title='Licenses' subtitle='These are the licenses for all the open source libraries used' contentLeft={darkMode.value ? <CertificationIconDark /> : <CertificationIconLight />}>
                         <Licenses brandColorStrict={brandColorStrict} />
                     </Collapse>
                 </Collapse.Group>
