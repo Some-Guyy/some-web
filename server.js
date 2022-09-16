@@ -33,4 +33,4 @@ app.get('/*', (req, res) => {
 })
 
 startupDate = new Date()
-app.listen(PORT, () => console.log(`${convertDateToString(startupDate)} - [INFO] - Server up and running on port ${PORT}!`));
+app.listen(PORT, () => console.log(`${convertDateToString(startupDate)} - [INFO] - Server startup! Running on port ${PORT}.`));
