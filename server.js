@@ -21,8 +21,9 @@ console.log = log => {
   logStdout.write(`${util.format(log)}\n`);
 }
 
+// Function to return a prettier date string format of "YYYY-MM-DD HH:MM:SS" from a date object. Mainly used for logging.
 const convertDateToString = date => {
-    date_string = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    date_string = `${date.getFullYear()}-${('0' + date.getMonth()).slice(-2)}-${('0' + date.getDate()).slice(-2)} ${('0' + date.getHours()).slice(-2)}:${('0' + date.getMinutes()).slice(-2)}:${('0' + date.getSeconds()).slice(-2)}`;
     return date_string;
 }
 
@@ -32,5 +33,5 @@ app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 })
 
-startupDate = new Date()
+startupDate = new Date();
 app.listen(PORT, () => console.log(`${convertDateToString(startupDate)} - [INFO] - Server startup! Running on port ${PORT}.`));
