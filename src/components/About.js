@@ -1,7 +1,7 @@
 import { Container, Row, Text, Spacer, Link, Collapse } from '@nextui-org/react';
 import { v4 as uuidv4 } from 'uuid';
 import { HeartIconDark, HeartIconLight, CertificationIconDark, CertificationIconLight } from './Icons';
-import Licenses from './Licenses';
+import Licenses from './ultilities/Licenses';
 import pckg from '../../package.json';
 
 const About = ({ darkMode, brandColor, brandColorStrict }) => {

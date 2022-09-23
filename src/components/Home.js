@@ -1,4 +1,5 @@
 import { Container, Text, Row } from '@nextui-org/react';
+import Canvas from './ultilities/Canvas';
 
 const Home = ({ brandColor }) => {
     return (
@@ -12,6 +13,12 @@ const Home = ({ brandColor }) => {
                 </Text>
             </Row>
             <Row justify='center'>
+                <Canvas />
+            </Row>
+            <Row justify='center'>
+                <Text size='$2xl'>
+                    Testing123
+                </Text>
             </Row>
         </Container>
     );
