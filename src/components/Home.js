@@ -8,17 +8,8 @@ const Home = ({ brandColor }) => {
                 <Text size='$5xl' color={brandColor}>Welcome to Some Website!</Text>
             </Row>
             <Row justify='center'>
-                <Text size='$2xl'>
-                    Welcome to the first launch of the site! Sadly there's literally nothing to see here for now...
-                </Text>
-            </Row>
-            <Row justify='center'>
-                <Graffiti />
-            </Row>
-            <Row justify='center'>
-                <Text size='$2xl'>
-                    Testing123
-                </Text>
+                {window.innerWidth >= 960 ? <Graffiti />
+                : <Text size='$2xl'>Use a desktop/tablet to view the graffiti wall. Otherwise there's nothing else here ¯\_(ツ)_/¯</Text>}
             </Row>
         </Container>
     );
