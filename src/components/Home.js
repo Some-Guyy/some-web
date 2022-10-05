@@ -1,5 +1,5 @@
 import { Container, Text, Row } from '@nextui-org/react';
-import Canvas from './ultilities/Canvas';
+import Graffiti from './ultilities/Graffiti';
 
 const Home = ({ brandColor }) => {
     return (
@@ -13,7 +13,7 @@ const Home = ({ brandColor }) => {
                 </Text>
             </Row>
             <Row justify='center'>
-                <Canvas />
+                <Graffiti />
             </Row>
             <Row justify='center'>
                 <Text size='$2xl'>

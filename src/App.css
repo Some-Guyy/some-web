@@ -1,5 +1,5 @@
 body.light-mode {
-    background-color: #EfE4D6;
+    background-color: #EFE4D6;
     transition: background-color 0.5s ease;
     min-height: 100vh;
 }
@@ -10,6 +10,38 @@ body.dark-mode {
     min-height: 100vh;
 }
 
+/* push buttons below menu ui due to nextui issue */
 .nextui-button-text {
     z-index: 0 !important;
+}
+
+#paletteCurrent {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #222;
+}
+
+.paletteColor {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border: 2px solid #222;
+    border-radius: 20px;
+}
+
+.paletteColor:hover {
+    cursor: pointer;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.paletteSize {
+    background-color: #222;
+    margin: 5px;
+    border-radius: 25px;
+}
+
+.paletteSize:hover {
+    cursor: pointer;
+    filter: brightness(900%);
 }
