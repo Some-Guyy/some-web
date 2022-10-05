@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Container, Row } from '@nextui-org/react';
+import { Container, Row, Text, Spacer } from '@nextui-org/react';
 import { v4 as uuidv4 } from 'uuid';
 import Sketch from 'react-p5';
 
 const Graffiti = () => {
-    const canvasSize = 1000
+    const canvasSize = 900;
 
     // Brush properties
     const [brushSize, setBrushSize] = useState(20);
@@ -12,12 +12,12 @@ const Graffiti = () => {
 
     // Palette for canvas
     const paletteSizes = [40, 30, 20, 10];
-    const paletteColors = ['white', 'silver', 'gray', '#222', 'navy', 'blue', 'aqua', 'teal', 'lime', 'green', 'olive', 'yellow', 'orange', 'red', 'maroon', 'purple', 'fuchsia'];
+    const paletteColors = ['white', 'silver', 'gray', 'black', 'navy', 'blue', 'aqua', 'teal', 'lime', 'green', 'olive', 'yellow', 'orange', 'red', 'maroon', 'purple', 'fuchsia'];
 
     // When canvas launches.
     const setup = (p5, canvasParentRef) => {
         p5.createCanvas(canvasSize, canvasSize).parent(canvasParentRef);
-        p5.background('rgb(255,255,255)');
+        p5.background('black');
     }
 
     // When pointer is in canvas.
@@ -36,18 +36,24 @@ const Graffiti = () => {
     return (
         <Container fluid>
             <Row justify='center'>
+                <Text size='$2xl'>
+                    While you're here, feel free to leave your mark below!
+                </Text>
+            </Row>
+            <Row justify='center'>
                 <Container lg display='flex' wrap='nowrap' css={{ padding: '20px', borderRadius: '10px', backgroundColor: '#EFE4D6' }}>
-                    <div style={{ display: 'flex', alignItems: 'center'}}>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
                         {<div id="paletteCurrent" style={{ backgroundColor: brushColor }} />}
                     </div>
                     <Container display='flex' justify='space-evenly' alignItems='center'>
                         {paletteColors.map(color => <div key={uuidv4()} className="paletteColor" onClick={() => setBrushColor(color)} style={{ backgroundColor: color }} />)}
                     </Container>
-                    <div style={{display: 'flex', alignItems: 'center'}}>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
                         {paletteSizes.map(size => <div key={uuidv4()} className="paletteSize" onClick={() => setBrushSize(size)} style={{ width: `${size}px`, height: `${size}px`, backgroundColor: size === brushSize ? '#fff' : '#222', border: size === brushSize ? '1.5px solid #222' : '0px' }} />)}
                     </div>
                 </Container>
             </Row>
+            <Spacer y={1} />
             <Row justify='center'>
                 <Sketch setup={setup} draw={draw} mouseDragged={mouseDragged} />
             </Row>
