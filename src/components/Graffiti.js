@@ -1,19 +1,23 @@
-import { useState } from 'react';
 import { Container, Row, Text, Spacer } from '@nextui-org/react';
-import { v4 as uuidv4 } from 'uuid';
 import { ReactP5Wrapper } from 'react-p5-wrapper';
+import { io } from 'socket.io-client';
+import Palette from './Palette';
 
 const Graffiti = () => {
-    // Size of canvas for graffiti.
+    // Initial properties.
+    const socket = io();
     const canvasSize = 900;
+    const loadingTextSize = 40;
+    const initialBrushColor = 'white';
+    const initialBrushSize = 20;
 
-    // Brush properties
-    const [brushSize, setBrushSize] = useState(20);
-    const [brushColor, setBrushColor] = useState('white');
+    // Brush properties.
+    let brushColor = initialBrushColor;
+    let brushSize = initialBrushSize;
 
-    // Palette for canvas
-    const paletteSizes = [40, 30, 20, 10];
-    const paletteColors = ['white', 'silver', 'gray', 'black', 'navy', 'blue', 'aqua', 'teal', 'lime', 'green', 'olive', 'yellow', 'orange', 'red', 'maroon', 'purple', 'fuchsia'];
+    // Functions to change brush properties.
+    const newBrushColor = color => brushColor = color;
+    const newBrushSize = size => brushSize = size;
 
     // Graffiti canvas.
     const sketch = p5 => {
@@ -21,6 +25,11 @@ const Graffiti = () => {
         p5.setup = () => {
             p5.createCanvas(canvasSize, canvasSize);
             p5.background('black');
+            p5.textSize(loadingTextSize);
+            p5.fill(initialBrushColor);
+            p5.text('Graffiti is loading...', canvasSize/3, loadingTextSize);
+            // Request graffiti data when launching canvas. Use a timer to allow thematic changes to occur before requesting the data.
+            const requestGraffiti = setTimeout(() => socket.emit('requestGraffiti', ''), 1000);
         }
 
         // When pointer is in canvas.
@@ -29,12 +38,36 @@ const Graffiti = () => {
         // When drawing.
         p5.mouseDragged = () => {
             if (p5.mouseX >= 0 && p5.mouseX <= canvasSize && p5.mouseY >= 0 && p5.mouseY <= canvasSize) {
+                const data = {
+                    drawX: p5.mouseX,
+                    drawY: p5.mouseY,
+                    brushSize,
+                    brushColor
+                };
+                socket.emit('clientDraw', data);
+
                 p5.noStroke();
                 p5.fill(brushColor);
                 p5.circle(p5.mouseX, p5.mouseY, brushSize);
-                console.log(`drawX: ${p5.mouseX}, drawY: ${p5.mouseY}, brushSize: ${brushSize}`);
             }
         }
+
+        // Once graffiti data received, draw it on canvas.
+        socket.on('sendGraffiti', data => {
+            p5.clear(); // Clear any loading messages before drawing.
+            for (let i = 0; i < data.length; i++) {
+                p5.noStroke();
+                p5.fill(data[i].brushColor);
+                p5.circle(data[i].drawX, data[i].drawY, data[i].brushSize);
+            }
+        });
+
+        // Update graffiti from other clients' drawings in real time.
+        socket.on('serverDraw', data => {
+            p5.noStroke();
+            p5.fill(data.brushColor);
+            p5.circle(data.drawX, data.drawY, data.brushSize);
+        });
     }
 
     return (
@@ -45,17 +78,7 @@ const Graffiti = () => {
                 </Text>
             </Row>
             <Row justify='center'>
-                <Container lg display='flex' wrap='nowrap' css={{ padding: '20px', borderRadius: '10px', backgroundColor: '#EFE4D6' }}>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        {<div id="paletteCurrent" style={{ backgroundColor: brushColor }} />}
-                    </div>
-                    <Container display='flex' justify='space-evenly' alignItems='center'>
-                        {paletteColors.map(color => <div key={uuidv4()} className="paletteColor" onClick={() => setBrushColor(color)} style={{ backgroundColor: color }} />)}
-                    </Container>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        {paletteSizes.map(size => <div key={uuidv4()} className="paletteSize" onClick={() => setBrushSize(size)} style={{ width: `${size}px`, height: `${size}px`, backgroundColor: size === brushSize ? '#fff' : '#222', border: size === brushSize ? '1.5px solid #222' : '0px' }} />)}
-                    </div>
-                </Container>
+                <Palette initialBrushColor={initialBrushColor} initialBrushSize={initialBrushSize} newBrushColor={newBrushColor} newBrushSize={newBrushSize} />
             </Row>
             <Spacer y={1} />
             <Row justify='center'>
