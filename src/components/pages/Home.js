@@ -1,5 +1,5 @@
 import { Container, Text, Row } from '@nextui-org/react';
-import Graffiti from './ultilities/Graffiti';
+import Graffiti from '../Graffiti';
 
 const Home = ({ brandColor }) => {
     return (

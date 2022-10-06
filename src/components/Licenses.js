@@ -3,7 +3,7 @@
 import React from 'react';
 import { Row, Text, Link, Spacer } from '@nextui-org/react';
 import { v4 as uuidv4 } from 'uuid';
-import licenseData from '../../assets/data/licenses.json';
+import licenseData from '../assets/data/licenses.json';
 
 const Licenses = ({ brandColorStrict }) => {
     // Place licenses that aren't in node modules into this array manually.

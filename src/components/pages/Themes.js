@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Text, Spacer, Button, Row } from '@nextui-org/react';
 import { v4 as uuidv4 } from 'uuid';
-import { ColorFillIconDark, ColorFillIconLight } from './Icons';
+import { ColorFillIconDark, ColorFillIconLight } from '../Icons';
 
 const Themes = ({ darkMode, brandColor, setBrandColorIndex, brandColors }) => {
     const changeTheme = index => {

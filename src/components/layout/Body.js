@@ -1,8 +1,8 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Container, Text, Row } from '@nextui-org/react';
-import Home from '../Home';
-import Themes from '../Themes';
-import About from '../About';
+import Home from '../pages/Home';
+import Themes from '../pages/Themes';
+import About from '../pages/About';
 
 const Body = ({ darkMode, brandColor, brandColorStrict, setBrandColorIndex, brandColors }) => {
     const location = useLocation();

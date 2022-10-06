@@ -1,8 +1,8 @@
 import { Container, Row, Text, Spacer, Link, Collapse } from '@nextui-org/react';
 import { v4 as uuidv4 } from 'uuid';
-import { HeartIconDark, HeartIconLight, CertificationIconDark, CertificationIconLight } from './Icons';
-import Licenses from './ultilities/Licenses';
-import pckg from '../../package.json';
+import { HeartIconDark, HeartIconLight, CertificationIconDark, CertificationIconLight } from '../Icons';
+import Licenses from '../Licenses';
+import pckg from '../../../package.json';
 
 const About = ({ darkMode, brandColor, brandColorStrict }) => {
     // Place main installed packages and other acknowledgements into this array manually.
