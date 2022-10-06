@@ -55,6 +55,7 @@ const Graffiti = () => {
         // Once graffiti data received, draw it on canvas.
         socket.on('sendGraffiti', data => {
             p5.clear(); // Clear any loading messages before drawing.
+            p5.background('black');
             for (let i = 0; i < data.length; i++) {
                 p5.noStroke();
                 p5.fill(data[i].brushColor);
