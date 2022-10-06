@@ -12,7 +12,9 @@ const About = ({ darkMode, brandColor, brandColorStrict }) => {
         ["@fisch0920/use-dark-mode", "https://github.com/transitive-bullshit/use-dark-mode"],
         ["uuid", "https://github.com/uuidjs/uuid"],
         ["Boxicons", "https://boxicons.com/"],
-        ["Express", "https://expressjs.com/"]
+        ["Express", "https://expressjs.com/"],
+        ["@P5-wrapper/react", "https://p5-wrapper.github.io/react/"],
+        ["Socket.IO", "https://socket.io/"]
     ]
 
     return (
