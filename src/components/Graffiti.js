@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Container, Row, Text, Spacer } from '@nextui-org/react';
 import { v4 as uuidv4 } from 'uuid';
-import Sketch from 'react-p5';
+import { ReactP5Wrapper } from 'react-p5-wrapper';
 
 const Graffiti = () => {
+    // Size of canvas for graffiti.
     const canvasSize = 900;
 
     // Brush properties
@@ -14,22 +15,25 @@ const Graffiti = () => {
     const paletteSizes = [40, 30, 20, 10];
     const paletteColors = ['white', 'silver', 'gray', 'black', 'navy', 'blue', 'aqua', 'teal', 'lime', 'green', 'olive', 'yellow', 'orange', 'red', 'maroon', 'purple', 'fuchsia'];
 
-    // When canvas launches.
-    const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(canvasSize, canvasSize).parent(canvasParentRef);
-        p5.background('black');
-    }
+    // Graffiti canvas.
+    const sketch = p5 => {
+        // When canvas launches.
+        p5.setup = () => {
+            p5.createCanvas(canvasSize, canvasSize);
+            p5.background('black');
+        }
 
-    // When pointer is in canvas.
-    const draw = p5 => p5.cursor('crosshair');
+        // When pointer is in canvas.
+        p5.draw = () => p5.cursor('crosshair');
 
-    // When drawing.
-    const mouseDragged = p5 => {
-        if (p5.mouseX >= 0 && p5.mouseX <= canvasSize && p5.mouseY >= 0 && p5.mouseY <= canvasSize) {
-            p5.noStroke();
-            p5.fill(brushColor);
-            p5.circle(p5.mouseX, p5.mouseY, brushSize);
-            console.log(`drawX: ${p5.mouseX}, drawY: ${p5.mouseY}, brushSize: ${brushSize}`);
+        // When drawing.
+        p5.mouseDragged = () => {
+            if (p5.mouseX >= 0 && p5.mouseX <= canvasSize && p5.mouseY >= 0 && p5.mouseY <= canvasSize) {
+                p5.noStroke();
+                p5.fill(brushColor);
+                p5.circle(p5.mouseX, p5.mouseY, brushSize);
+                console.log(`drawX: ${p5.mouseX}, drawY: ${p5.mouseY}, brushSize: ${brushSize}`);
+            }
         }
     }
 
@@ -55,7 +59,7 @@ const Graffiti = () => {
             </Row>
             <Spacer y={1} />
             <Row justify='center'>
-                <Sketch setup={setup} draw={draw} mouseDragged={mouseDragged} />
+                <ReactP5Wrapper sketch={sketch} />
             </Row>
         </Container>
     )
