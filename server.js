@@ -2,16 +2,17 @@ const path = require('path');
 const fs = require('fs');
 const util = require('util');
 const express = require('express');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// If log directory does not exist, create one.
-if (!fs.existsSync('./logs')){
-    fs.mkdirSync('./logs');
+// If appdata directory does not exist, create one.
+if (!fs.existsSync('./appdata')){
+    fs.mkdirSync('./appdata');
 }
 
 // Paths
-const logPath = path.join(__dirname, 'logs', 'console.log');
+const logPath = path.join(__dirname, 'appdata', 'console.log');
 
 // Save console logs.
 const logFile = fs.createWriteStream(logPath, {flags: 'a'});
