@@ -29,7 +29,7 @@ const Graffiti = () => {
             p5.fill(initialBrushColor);
             p5.text('Graffiti is loading...', canvasSize/3, loadingTextSize);
             // Request graffiti data when launching canvas. Use a timer to allow thematic changes to occur before requesting the data.
-            const requestGraffiti = setTimeout(() => socket.emit('requestGraffiti', ''), 1000);
+            setTimeout(() => socket.emit('requestGraffiti', ''), 1000);
         }
 
         // When pointer is in canvas.
