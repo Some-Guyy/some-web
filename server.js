@@ -27,7 +27,7 @@ console.log = log => {
 
 // Function to return a prettier date string format of "YYYY-MM-DD HH:MM:SS" from a date object. Mainly used for logging.
 const convertDateToString = date => {
-    date_string = `${date.getFullYear()}-${('0' + date.getMonth()).slice(-2)}-${('0' + date.getDate()).slice(-2)} ${('0' + date.getHours()).slice(-2)}:${('0' + date.getMinutes()).slice(-2)}:${('0' + date.getSeconds()).slice(-2)}`;
+    date_string = `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)} ${('0' + date.getHours()).slice(-2)}:${('0' + date.getMinutes()).slice(-2)}:${('0' + date.getSeconds()).slice(-2)}`;
     return date_string;
 }
 
