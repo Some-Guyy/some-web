@@ -3,4 +3,4 @@
 
 Just a small website I built while learning how to use [React](https://reactjs.org/).
 
-There isn't much to see for now except a [graffiti wall](https://www.somews.com) where you can draw anything you want on it.
+There isn't much to see for now except a [graffiti wall](https://somedomain.asuscomm.com) where you can draw anything you want on it.
