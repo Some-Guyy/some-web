@@ -2,6 +2,7 @@ import { Navbar, Button, Link, Text, Image, Spacer } from '@nextui-org/react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { GitHubIconDark, GitHubIconLight, MoonIcon, SunIcon } from '../Icons';
+import Logo from '../../assets/images/logo.png';
 
 const Nav = ({ darkMode, brandColor, brandColorStrict }) => {
     // When browser width reaches this size (on mobile and tablets), we want to hide certain components on the navbar to fit the content in a smaller width.
@@ -30,7 +31,7 @@ const Nav = ({ darkMode, brandColor, brandColorStrict }) => {
             <Navbar.Brand>
                 <Navbar.Toggle showIn={tabletWidth} />
                 <Spacer x={0.5} />
-                <Image width={40} height={40} src='https://cdn.discordapp.com/attachments/625670917263196174/679323937934671873/Birb.png' showSkeleton alt='logo' />
+                <Image width={40} height={40} src={Logo} showSkeleton alt='logo' />
                 <Spacer x={1} />
                 <Text b size='$3xl' hideIn={mobileWidth} color={brandColor}>
                     Some Website
